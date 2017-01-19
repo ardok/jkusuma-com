@@ -1,6 +1,12 @@
 require('es6-promise').polyfill();
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path');
+
+var nodeModulesPath = path.resolve(__dirname, 'node_modules');
+var distPath = path.resolve(__dirname, 'dist');
+var mainJsPath = path.resolve(__dirname, 'src', 'client', 'javascripts', 'main.js');
+var mainCssPath = path.resolve(__dirname, 'src', 'client', 'stylesheets', 'main.scss');
 
 function getDevTool() {
     if (process.env.NODE_ENV !== 'production') {
@@ -11,15 +17,14 @@ function getDevTool() {
 
 module.exports = {
   entry: [
-    'webpack/hot/dev-server',
-    './src/client/javascripts/main.js',
-    './src/client/stylesheets/main.scss'
+    mainJsPath,
+    mainCssPath
   ],
   devServer: {
     contentBase: __dirname
   },
   output: {
-    path: __dirname + '/dist',
+    path: distPath,
     publicPath: '/dist',
     filename: '/scripts/main.js'
   },
@@ -27,14 +32,14 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      exclude: /node_modules/,
+      exclude: [nodeModulesPath],
       loader: 'babel-loader',
       query: {
         presets: ['es2015', 'react']
       }
     }, {
       test: /\.scss$/,
-      exclude: /node_modules/,
+      exclude: [nodeModulesPath],
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
     }]
   },
@@ -42,6 +47,7 @@ module.exports = {
     extensions: ['', '.js']
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin('/styles/main.css', {
       allChunks: true
     })

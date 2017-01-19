@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ardok/jkusuma-com#readme",
   "dependencies": {
+    "path": "^0.12.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^3.0.1"
@@ -36,7 +37,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
-    "build": "rm -rf dist/ && webpack -p --progress --colors --display-error-details",
+    "build": "NODE_ENV=production rm -rf dist/ && webpack -p --progress --colors --display-error-details",
     "watch": "webpack-dev-server --hot --inline --progress --colors --display-error-details"
   }
 }
