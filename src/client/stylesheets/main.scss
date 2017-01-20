@@ -1,5 +1,31 @@
-@import 'app';
+@import '~material-colors';
 
-#app-content {
-  background-color: #000;
+@import 'variables';
+// `keyframes` should come first because it is being used in `animations`
+@import 'keyframes';
+@import 'animations';
+
+@import 'name';
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: $md-blue-grey-50;
+}
+
+.radial-bg {
+  background: radial-gradient(circle, $md-blue-grey-300 25%, $md-blue-grey-200 50%, $md-blue-grey-100 75%, $md-blue-grey-50 100%);
+  background-attachment: fixed;
+  height: 100%;
+}
+
+.display--inline-block {
+  display: inline-block;
+}
+
+.cursor--default {
+  cursor: default;
+}
+
+.margin-left--small {
+  margin-left: $marginLeftSmall;
 }

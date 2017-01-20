@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {Router, browserHistory, Link, Route, RouteHandler} from 'react-router';
+import {Router, browserHistory, Link, Route, IndexRoute, RouteHandler} from 'react-router';
 
-import App from '../../shared/components/app';
+import AppContainer from '../../shared/containers/app-container';
+import IndexContainer from '../../shared/containers/index-container';
 
 const routes = (
-  <Route path="/" component={App}>
+  <Route path="/" component={AppContainer}>
+    <IndexRoute component={IndexContainer} />
   </Route>
 );
 

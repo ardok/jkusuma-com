@@ -1,0 +1,60 @@
+$nameBigFontSize: 120px;
+
+.name__container {
+  position: absolute;
+  top: calc(50% - 40px);
+  left: calc(50% - 119px);
+  line-height: 40px;
+}
+
+.name__inner-container {
+  position: relative;
+}
+
+.name__first {
+  font-size: 60px;
+}
+
+.name__fixed {
+  margin-left: $marginLeftSmall;
+}
+
+.name__last {
+  font-size: 24px;
+  text-align: center;
+}
+
+.name--j {
+  position: absolute;
+  left: -54px;
+  font-size: $nameBigFontSize;
+}
+
+// `D` letter will start first
+.name--d {
+  animation-name: nameD;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+.name--y {
+  animation-name: nameY;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+  transform-origin: bottom center;
+  animation-timing-function: ease-out;
+}
+
+.name--o {
+  position: absolute;
+  right: -36px;
+  font-size: $nameBigFontSize;
+  transform: translateY(-1000px);
+  animation-name: nameO;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.9s;
+  animation-timing-function: ease-out;
+}
