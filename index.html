@@ -8,6 +8,15 @@
   </head>
   <body class="radial-bg">
     <div id="app-content"></div>
-    <script src="dist/scripts/main.js"></script>
+    <script>
+      window.onload = function onload() {
+        // Load our JS file
+        // Ideally, we should just do server rendering here
+        var s = document.createElement('script');
+        s.src = 'dist/scripts/main.js';
+        s.async = true;
+        document.getElementsByTagName('body')[0].appendChild(s);
+      };
+    </script>
   </body>
 </html>
