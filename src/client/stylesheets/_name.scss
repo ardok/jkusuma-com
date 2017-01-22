@@ -33,10 +33,11 @@ $nameBigFontSize: 120px;
 
 // `D` letter will start first
 .name--d {
-  animation-name: nameD;
-  animation-duration: 1s;
+  animation: nameD, nameDShake;
+  animation-delay: 0s, 1.4s;
+  animation-duration: 1s, 0.25s;
   animation-fill-mode: forwards;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease-in;
 }
 
 .name--y {
@@ -45,7 +46,7 @@ $nameBigFontSize: 120px;
   animation-fill-mode: forwards;
   animation-delay: 0.5s;
   transform-origin: bottom center;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease-in;
 }
 
 .name--o {
@@ -56,6 +57,6 @@ $nameBigFontSize: 120px;
   animation-name: nameO;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-  animation-delay: 0.9s;
-  animation-timing-function: ease-out;
+  animation-delay: 0.4s;
+  animation-timing-function: ease-in;
 }

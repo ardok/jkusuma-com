@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
+import {StyleRoot} from 'radium';
 
 class AppContainer extends Component {
   render() {
     return (
-      <div>
-        {this.props.children}
-      </div>
+      <StyleRoot>
+        <div>
+          {this.props.children}
+        </div>
+      </StyleRoot>
     );
   }
 }
