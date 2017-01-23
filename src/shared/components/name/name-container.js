@@ -7,7 +7,7 @@ const NameContainer = ({children, ...otherProps}) => {
     container: {
       position: 'absolute',
       top: 'calc(50% - 40px)',
-      left: 'calc(50% - 119px)',
+      left: 'calc(50% - 110px)',
       lineHeight: '40px'
     }
   };

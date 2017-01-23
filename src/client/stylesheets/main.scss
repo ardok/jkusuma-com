@@ -4,6 +4,7 @@
 // `keyframes` should come first because it is being used in `animations`
 @import 'keyframes';
 @import 'animations';
+@import 'icon';
 
 @import 'name';
 
@@ -28,4 +29,8 @@ body {
 
 .margin-left--small {
   margin-left: $marginLeftSmall;
+}
+
+.transition {
+  transition: all 200ms;
 }
