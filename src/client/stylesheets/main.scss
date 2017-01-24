@@ -3,10 +3,10 @@
 @import 'variables';
 // `keyframes` should come first because it is being used in `animations`
 @import 'keyframes';
-@import 'animations';
 @import 'icon';
 
 @import 'name';
+@import 'progress-bar';
 
 body {
   font-family: 'Roboto Condensed', sans-serif;
