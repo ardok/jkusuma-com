@@ -1,0 +1,6 @@
+{
+  "collectCoverage": true,
+  "testPathDirs": [
+    "src/test/browser/"
+  ]
+}

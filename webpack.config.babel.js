@@ -45,10 +45,6 @@ export default {
         testPath,
       ],
       loader: 'babel-loader',
-      options: {
-        presets: ['es2015', 'react'],
-        plugins: ['transform-es2015-destructuring', 'transform-object-rest-spread'],
-      },
     }, {
       test: /\.scss$/,
       exclude: [nodeModulesPath],
