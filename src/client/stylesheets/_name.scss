@@ -22,7 +22,7 @@ $nameBigFontSize: 120px;
 .name__last {
   font-size: 24px;
   text-align: center;
-  margin-left: -20px;
+  margin-left: 16px;
 }
 
 .name--j {
@@ -41,17 +41,15 @@ $nameBigFontSize: 120px;
 }
 
 .name--y {
-  animation-name: nameY;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
+  position: absolute;
+  top: 0;
+  right: 0;
   animation-delay: 0.5s;
-  transform-origin: bottom center;
-  animation-timing-function: ease-in;
 }
 
 .name--o {
   position: absolute;
-  right: -36px;
+  right: -68px;
   font-size: $nameBigFontSize;
   transform: translateY(-1000px);
   animation-name: nameO;

@@ -17,6 +17,7 @@
   "homepage": "https://github.com/ardok/jkusuma-com#readme",
   "dependencies": {
     "deep-extend": "^0.4.1",
+    "is-browser": "^2.0.1",
     "material-colors": "^1.2.5",
     "radium": "^0.18.1",
     "random-number": "^0.0.7",
@@ -62,6 +63,6 @@
     "build": "NODE_ENV=production rm -rf dist/ && webpack -p --config webpack.production.config.babel.js",
     "watch": "webpack-dev-server --hot --inline --progress --colors",
     "lint": "eslint .",
-    "test": "npm run lint && jest --config=src/test/jest.browser.json && jest --config=src/test/jest.node.json"
+    "test": "jest --config=src/test/jest.node.json && npm run lint && jest --config=src/test/jest.browser.json"
   }
 }

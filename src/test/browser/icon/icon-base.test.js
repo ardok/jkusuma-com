@@ -15,8 +15,8 @@ test('IconBase: mount', () => {
     <IconBase {...iconBaseProps} />
   );
 
-  expect(component.props().href).toEqual('https://github.com/ardok/jkusuma-com');
-  expect(component.props().iconClassName).toEqual('icon--github ion-social-github');
+  expect(component.props().href).toBe('https://github.com/ardok/jkusuma-com');
+  expect(component.props().iconClassName).toBe('icon--github ion-social-github');
   expect(component.props().style).toMatchObject({
     width: 20,
   });

@@ -53,11 +53,11 @@ const NameMine = (props) => (
   <NameContainer>
     <NameInnerContainer>
       <div className="name__first">
-        <NameLetter className="name--j">J</NameLetter>
+        <NameLetter className="name--j" noAnimation>J</NameLetter>
         {getShakingLetters(props)}
-        <NameLetter className="name--y">Y</NameLetter>
+        <NameLetter className="name--y pb--anim-fall">Y</NameLetter>
         <NameLetter className="name--d">D</NameLetter>
-        <NameLetter className="name--o">O</NameLetter>
+        <NameLetter className="name--o" noAnimation>O</NameLetter>
       </div>
       <div className="name__last">
         KUSUMA

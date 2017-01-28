@@ -2,6 +2,9 @@
   "testEnvironment": "node",
   "collectCoverage": true,
   "testPathDirs": [
-    "src/test/node/"
+    "./src/test/node/"
+  ],
+  "setupFiles": [
+    "./src/test/node/setup.js"
   ]
 }

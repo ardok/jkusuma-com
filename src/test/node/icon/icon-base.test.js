@@ -12,8 +12,8 @@ test('IconBase: shallow', () => {
     <IconBase {...iconBaseProps} />
   );
 
-  expect(component.find('i.icon--github').length).toEqual(1);
-  expect(component.find('i.ion-social-github').length).toEqual(1);
-  expect(component.find('i.icon--github.ion-social-github').length).toEqual(1);
-  expect(component.find('a').length).toEqual(1);
+  expect(component.find('i.icon--github').length).toBe(1);
+  expect(component.find('i.ion-social-github').length).toBe(1);
+  expect(component.find('i.icon--github.ion-social-github').length).toBe(1);
+  expect(component.find('a').length).toBe(1);
 });
