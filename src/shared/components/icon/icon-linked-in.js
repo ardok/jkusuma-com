@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 
-import {configuredRadium} from '../helpers/styles';
+import {configuredRadium} from '../../helpers/styles';
 
 const IconLinkedIn = (props) => (
   <div>

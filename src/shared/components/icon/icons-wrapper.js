@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import ProgressBar from 'react-progressbar.js';
 
 import IconLinkedIn from './icon-linked-in';
+import IconGitHub from './icon-github';
 
-import {configuredRadium} from '../helpers/styles';
+import {configuredRadium} from '../../helpers/styles';
 
 const ProgressBarCircle = ProgressBar.Circle;
 const PB_TIME = 1450;
@@ -60,7 +61,13 @@ class PBCircle extends Component {
       iconLinkedIn: {
         position: 'absolute',
         left: 'calc(50% - 13px)',
-        top: '20%',
+        top: 0,
+        fontSize: '36px',
+      },
+      iconGitHub: {
+        position: 'absolute',
+        left: 'calc(50% - 15px)',
+        top: '45%',
         fontSize: '36px',
       },
     };
@@ -77,6 +84,7 @@ class PBCircle extends Component {
         </div>
         <div style={styles.iconLinkedInContainer}>
           <IconLinkedIn style={styles.iconLinkedIn} />
+          <IconGitHub style={styles.iconGitHub} />
         </div>
       </div>
     );

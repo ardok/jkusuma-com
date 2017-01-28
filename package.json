@@ -2,7 +2,6 @@
   "name": "jkusuma-com",
   "version": "0.0.0",
   "description": "Project for jkusuma.com",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ardok/jkusuma-com.git"

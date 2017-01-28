@@ -1,11 +1,11 @@
 import React from 'react';
 
-import IconLinkedInWrapper from '../components/icon-linked-in-wrapper';
+import IconsWrapper from '../components/icon/icons-wrapper';
 import NameMine from '../components/name-mine';
 
 const IndexContainer = () => (
   <div>
-    <IconLinkedInWrapper />
+    <IconsWrapper />
     <NameMine />
   </div>
 );
