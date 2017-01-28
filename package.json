@@ -62,7 +62,6 @@
     "build": "NODE_ENV=production rm -rf dist/ && webpack -p --config webpack.production.config.babel.js",
     "watch": "webpack-dev-server --hot --inline --progress --colors",
     "lint": "eslint .",
-    "test": "jest --config=src/test/jest.browser.json && jest --config=src/test/jest.node.json",
-    "test-help": "jest --help"
+    "test": "npm run lint && jest --config=src/test/jest.browser.json && jest --config=src/test/jest.node.json"
   }
 }

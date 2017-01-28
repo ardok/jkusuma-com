@@ -8,6 +8,6 @@
     "max-len": 0,
     "object-curly-spacing": [2, "never"],
     "no-param-reassign": 0,
-    "react/jsx-curly-spacing": [2, "never", { "allowMultiline": true  }]
+    "react/jsx-curly-spacing": [2, "never", { "allowMultiline": true }]
   }
 }
