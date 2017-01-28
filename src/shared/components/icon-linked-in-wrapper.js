@@ -28,7 +28,6 @@ class PBCircle extends Component {
     const {
       state: {
         pbClassName,
-        iconVisiblity,
       },
     } = this;
 
