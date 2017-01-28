@@ -3,7 +3,7 @@ import ProgressBar from 'react-progressbar.js';
 
 import IconLinkedIn from './icon-linked-in';
 
-import {ConfiguredRadium} from '../helpers/styles';
+import {configuredRadium} from '../helpers/styles';
 
 const ProgressBarCircle = ProgressBar.Circle;
 const PB_TIME = 1450;
@@ -69,10 +69,11 @@ class PBCircle extends Component {
       <div style={styles.container}>
         <div className={`pb__container ${pbClassName}`} style={styles.pbContainer}>
           <ProgressBarCircle
-              progress={1}
-              options={options}
-              initialAnimate={true}
-              containerStyle={styles.pbCircle} />
+            progress={1}
+            options={options}
+            initialAnimate
+            containerStyle={styles.pbCircle}
+          />
         </div>
         <div style={styles.iconLinkedInContainer}>
           <IconLinkedIn style={styles.iconLinkedIn} />
@@ -82,4 +83,4 @@ class PBCircle extends Component {
   }
 }
 
-export default ConfiguredRadium(PBCircle);
+export default configuredRadium(PBCircle);

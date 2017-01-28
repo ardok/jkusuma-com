@@ -1,17 +1,17 @@
-import Radium from 'radium';
+import radium from 'radium';
 
-export function ConfiguredRadium(component) {
-  return Radium({
+export function configuredRadium(component) {
+  return radium({
     plugins: [
-      Radium.Plugins.mergeStyleArray,
-      Radium.Plugins.checkProps,
-      Radium.Plugins.resolveMediaQueries,
-      Radium.Plugins.resolveInteractionStyles,
-      Radium.Plugins.keyframes,
-      Radium.Plugins.visited,
-      Radium.Plugins.removeNestedStyles,
-      Radium.Plugins.prefix,
-      Radium.Plugins.checkProps,
+      radium.Plugins.mergeStyleArray,
+      radium.Plugins.checkProps,
+      radium.Plugins.resolveMediaQueries,
+      radium.Plugins.resolveInteractionStyles,
+      radium.Plugins.keyframes,
+      radium.Plugins.visited,
+      radium.Plugins.removeNestedStyles,
+      radium.Plugins.prefix,
+      radium.Plugins.checkProps,
     ],
   })(component);
 }

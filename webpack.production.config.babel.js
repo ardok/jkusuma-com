@@ -17,5 +17,5 @@ export default objectAssign({}, webpackDefaultConfig, {
         warnings: true,
       },
     }),
-  ])
+  ]),
 });

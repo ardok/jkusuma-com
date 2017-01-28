@@ -1,29 +1,30 @@
-import React, {Component} from 'react';
+import React, {PropTypes} from 'react';
 import deepExtend from 'deep-extend';
 
-import {ConfiguredRadium} from '../../helpers/styles';
+import {configuredRadium} from '../../helpers/styles';
 
-class NameLetter extends Component {
-  render() {
-    const {
-      props: {
-        children,
-        style,
-        ...otherProps,
-      },
-    } = this;
-    const styles = {
-      nameLetter: deepExtend({
-        display: 'inline-block',
-        cursor: 'default'
-      }, style)
-    };
-    return (
-      <div style={styles.nameLetter} {...otherProps}>
-        {children}
-      </div>
-    );
-  }
-}
+const NameLetter = (props) => {
+  const {
+    children,
+    style,
+    ...otherProps,
+  } = props;
+  const styles = {
+    nameLetter: deepExtend({
+      display: 'inline-block',
+      cursor: 'default',
+    }, style),
+  };
+  return (
+    <div style={styles.nameLetter} {...otherProps}>
+      {children}
+    </div>
+  );
+};
 
-export default ConfiguredRadium(NameLetter);
+NameLetter.propTypes = {
+  children: PropTypes.any,
+  style: PropTypes.object,
+};
+
+export default configuredRadium(NameLetter);

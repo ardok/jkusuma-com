@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, browserHistory, Link, Route, IndexRoute, RouteHandler} from 'react-router';
+import {Router, browserHistory, Route, IndexRoute} from 'react-router';
 
 import AppContainer from '../../shared/containers/app-container';
 import IndexContainer from '../../shared/containers/index-container';

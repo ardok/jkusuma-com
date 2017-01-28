@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Radium from 'radium';
 import randomNumber from 'random-number';
 
@@ -39,7 +39,7 @@ function getShakingAnimStyle() {
   };
 }
 
-function getShakingLetters(props) {
+function getShakingLetters() {
   return SHAKING_LETTERS.map((letter, idx) => {
     const letterStyle = getShakingAnimStyle();
     return (
@@ -49,23 +49,21 @@ function getShakingLetters(props) {
 }
 
 // class NameMine extends Component {
-const NameMine = (props) => {
-  return (
-    <NameContainer>
-      <NameInnerContainer>
-        <div className="name__first">
-          <NameLetter className="name--j">J</NameLetter>
-          {getShakingLetters(props)}
-          <NameLetter className="name--y">Y</NameLetter>
-          <NameLetter className="name--d">D</NameLetter>
-          <NameLetter className="name--o">O</NameLetter>
-        </div>
-        <div className="name__last">
-          KUSUMA
-        </div>
-      </NameInnerContainer>
-    </NameContainer>
-  );
-}
+const NameMine = (props) => (
+  <NameContainer>
+    <NameInnerContainer>
+      <div className="name__first">
+        <NameLetter className="name--j">J</NameLetter>
+        {getShakingLetters(props)}
+        <NameLetter className="name--y">Y</NameLetter>
+        <NameLetter className="name--d">D</NameLetter>
+        <NameLetter className="name--o">O</NameLetter>
+      </div>
+      <div className="name__last">
+        KUSUMA
+      </div>
+    </NameInnerContainer>
+  </NameContainer>
+);
 
 export default NameMine;

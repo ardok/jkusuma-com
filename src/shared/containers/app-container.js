@@ -1,16 +1,16 @@
-import React, {Component} from 'react';
+import React, {PropTypes} from 'react';
 import {StyleRoot} from 'radium';
 
-class AppContainer extends Component {
-  render() {
-    return (
-      <StyleRoot>
-        <div>
-          {this.props.children}
-        </div>
-      </StyleRoot>
-    );
-  }
-}
+const AppContainer = ({children}) => (
+  <StyleRoot>
+    <div>
+      {children}
+    </div>
+  </StyleRoot>
+);
+
+AppContainer.propTypes = {
+  children: PropTypes.any,
+};
 
 export default AppContainer;

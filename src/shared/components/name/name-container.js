@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, {PropTypes} from 'react';
 
-import {ConfiguredRadium} from '../../helpers/styles';
+import {configuredRadium} from '../../helpers/styles';
 
 const NameContainer = ({children, ...otherProps}) => {
   const styles = {
@@ -8,8 +8,8 @@ const NameContainer = ({children, ...otherProps}) => {
       position: 'absolute',
       top: 'calc(50% - 40px)',
       left: 'calc(50% - 110px)',
-      lineHeight: '40px'
-    }
+      lineHeight: '40px',
+    },
   };
   return (
     <div style={styles.container} {...otherProps}>
@@ -18,4 +18,8 @@ const NameContainer = ({children, ...otherProps}) => {
   );
 };
 
-export default ConfiguredRadium(NameContainer);
+NameContainer.propTypes = {
+  children: PropTypes.any,
+};
+
+export default configuredRadium(NameContainer);

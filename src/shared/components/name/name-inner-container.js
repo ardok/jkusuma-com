@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React, {PropTypes} from 'react';
 
-import {ConfiguredRadium} from '../../helpers/styles';
+import {configuredRadium} from '../../helpers/styles';
 
 const NameInnerContainer = ({children, ...otherProps}) => {
   const styles = {
     innerContainer: {
-      position: 'relative'
-    }
+      position: 'relative',
+    },
   };
   return (
     <div style={styles.innerContainer} {...otherProps}>
@@ -15,4 +15,8 @@ const NameInnerContainer = ({children, ...otherProps}) => {
   );
 };
 
-export default ConfiguredRadium(NameInnerContainer);
+NameInnerContainer.propTypes = {
+  children: PropTypes.any,
+};
+
+export default configuredRadium(NameInnerContainer);
