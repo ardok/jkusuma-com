@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import ProgressBar from 'react-progressbar.js';
 
-import IconLinkedIn from './icon-linked-in';
-import IconGitHub from './icon-github';
+import IconBase from './icon-base';
 
 import {configuredRadium} from '../../helpers/styles';
 
@@ -38,11 +37,16 @@ class PBCircle extends Component {
       duration: PB_TIME,
     };
 
+    const pbCircleStyle = {
+      width: '100px',
+      height: '100px',
+    };
+
     const styles = {
       container: {
         position: 'absolute',
-        left: 'calc(50% - 36.5px)',
-        top: 'calc(50% - 132px)',
+        left: 'calc(50% - 50px)',
+        top: 'calc(50% - 160px)',
         zIndex: 1,
       },
       pbContainer: {
@@ -50,14 +54,8 @@ class PBCircle extends Component {
         zIndex: 1,
         borderRadius: '50%',
       },
-      pbCircle: {
-        width: '75px',
-        height: '75px',
-      },
-      iconLinkedInContainer: {
-        width: '75px',
-        height: '75px',
-      },
+      pbCircle: pbCircleStyle,
+      iconsContainer: pbCircleStyle,
       iconLinkedIn: {
         position: 'absolute',
         left: 'calc(50% - 13px)',
@@ -72,6 +70,18 @@ class PBCircle extends Component {
       },
     };
 
+    const iconLinkedInProps = {
+      href: 'https://www.linkedin.com/in/januardokusuma/',
+      iconClassName: 'icon--linkedin ion-social-linkedin',
+      style: styles.iconLinkedIn,
+    };
+
+    const iconGitHubProps = {
+      href: 'https://github.com/ardok/jkusuma-com',
+      iconClassName: 'icon--github ion-social-github',
+      style: styles.iconGitHub,
+    };
+
     return (
       <div style={styles.container}>
         <div className={`pb__container ${pbClassName}`} style={styles.pbContainer}>
@@ -82,9 +92,9 @@ class PBCircle extends Component {
             containerStyle={styles.pbCircle}
           />
         </div>
-        <div style={styles.iconLinkedInContainer}>
-          <IconLinkedIn style={styles.iconLinkedIn} />
-          <IconGitHub style={styles.iconGitHub} />
+        <div style={styles.iconsContainer}>
+          <IconBase {...iconLinkedInProps} />
+          <IconBase {...iconGitHubProps} />
         </div>
       </div>
     );
