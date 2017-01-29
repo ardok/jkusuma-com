@@ -18,3 +18,10 @@ export function gaClickAnimLetterCount() {
     eventAction: 'click',
   });
 }
+
+export function gaClickAnimLetter() {
+  gaSend({
+    eventCategory: 'clickAnimLetter',
+    eventAction: 'click',
+  });
+}
