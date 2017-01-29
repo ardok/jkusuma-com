@@ -4,3 +4,9 @@ export function clickAnimLetter() {
     type: actionTypes.CLICK_LETTER_ANIM,
   };
 }
+
+export function clearClickLetterAnimCount() {
+  return {
+    type: actionTypes.CLICK_LETTER_ANIM_CLEAR,
+  };
+}

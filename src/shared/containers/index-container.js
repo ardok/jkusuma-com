@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 
-import {clickAnimLetter} from '../actions/name';
+import {clickAnimLetter, clearClickLetterAnimCount} from '../actions/name';
 
 import IconsWrapper from '../components/icon/icons-wrapper';
 import NameMine from '../components/name/name-mine';
@@ -13,11 +13,15 @@ const mapDispatchToProps = (dispatch) => ({
   onLetterClick: () => {
     dispatch(clickAnimLetter());
   },
+  clearClickLetterAnimCount: () => {
+    dispatch(clearClickLetterAnimCount());
+  },
 });
 
 const IndexContainer = (props) => {
   const {
     onLetterClick,
+    clearClickLetterAnimCount: clearClickCount,
     nameState: {
       clickLetterAnimCount,
     },
@@ -25,6 +29,7 @@ const IndexContainer = (props) => {
 
   const nameClickCountProps = {
     clickLetterAnimCount,
+    clearClickCount,
   };
 
   const nameMineProps = {
@@ -43,6 +48,7 @@ const IndexContainer = (props) => {
 
 IndexContainer.propTypes = {
   onLetterClick: PropTypes.func,
+  clearClickLetterAnimCount: PropTypes.func,
   nameState: PropTypes.object,
 };
 

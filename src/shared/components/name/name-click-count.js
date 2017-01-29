@@ -3,7 +3,7 @@ import React, {PropTypes} from 'react';
 import {configuredRadium} from '../../helpers/styles';
 
 const NameClickCount = (props) => {
-  const {clickLetterAnimCount} = props;
+  const {clickLetterAnimCount, clearClickCount} = props;
   if (typeof clickLetterAnimCount !== 'number') {
     return null;
   }
@@ -13,6 +13,7 @@ const NameClickCount = (props) => {
       position: 'absolute',
       right: '25px',
       textAlign: 'center',
+      cursor: 'default',
     },
     clickText: {
       fontSize: '10px',
@@ -20,7 +21,11 @@ const NameClickCount = (props) => {
   };
 
   return (
-    <div className="name-click-count__container" style={styles.container}>
+    <div
+      className="name-click-count__container"
+      style={styles.container}
+      onClick={clearClickCount}
+    >
       <div style={styles.clickText}>Click</div>
       <div className="name-click-count__count">{clickLetterAnimCount}</div>
     </div>
@@ -29,9 +34,7 @@ const NameClickCount = (props) => {
 
 NameClickCount.propTypes = {
   clickLetterAnimCount: PropTypes.number,
-};
-
-NameClickCount.defaultProps = {
+  clearClickCount: PropTypes.func,
 };
 
 export default configuredRadium(NameClickCount);
