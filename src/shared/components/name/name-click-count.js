@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 
 import {configuredRadium} from '../../helpers/styles';
+import {gaClickAnimLetterCount} from '../../helpers/ga';
 
 const NameClickCount = (props) => {
   const {clickLetterAnimCount, clearClickCount} = props;
@@ -24,7 +25,10 @@ const NameClickCount = (props) => {
     <div
       className="name-click-count__container"
       style={styles.container}
-      onClick={clearClickCount}
+      onClick={() => {
+        gaClickAnimLetterCount();
+        clearClickCount();
+      }}
     >
       <div style={styles.clickText}>Click</div>
       <div className="name-click-count__count">{clickLetterAnimCount}</div>
