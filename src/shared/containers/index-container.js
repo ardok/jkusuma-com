@@ -1,13 +1,52 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
+import {connect} from 'react-redux';
+
+import {clickAnimLetter} from '../actions/name';
 
 import IconsWrapper from '../components/icon/icons-wrapper';
-import NameMine from '../components/name-mine';
+import NameMine from '../components/name/name-mine';
+import NameClickCount from '../components/name/name-click-count';
 
-const IndexContainer = () => (
-  <div>
-    <IconsWrapper />
-    <NameMine />
-  </div>
-);
+const mapStateToProps = (state) => state;
 
-export default IndexContainer;
+const mapDispatchToProps = (dispatch) => ({
+  onLetterClick: () => {
+    dispatch(clickAnimLetter());
+  },
+});
+
+const IndexContainer = (props) => {
+  const {
+    onLetterClick,
+    nameState: {
+      clickLetterAnimCount,
+    },
+  } = props;
+
+  const nameClickCountProps = {
+    clickLetterAnimCount,
+  };
+
+  const nameMineProps = {
+    onLetterClick,
+    clickLetterAnimCount,
+  };
+
+  return (
+    <div>
+      <NameClickCount {...nameClickCountProps} />
+      <IconsWrapper />
+      <NameMine {...nameMineProps} />
+    </div>
+  );
+};
+
+IndexContainer.propTypes = {
+  onLetterClick: PropTypes.func,
+  nameState: PropTypes.object,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(IndexContainer);

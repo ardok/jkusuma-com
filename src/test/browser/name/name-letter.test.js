@@ -17,12 +17,13 @@ test('NameLetter: mount with animation after', () => {
     <NameLetter {...nameLetterProps} />
   );
 
-  expect(component.find('.name-letter__container').getDOMNode().style._values).toMatchObject({
+  expect(component.find('.name-letter__container').getDOMNode().style._values).toEqual({
     width: '20px',
     display: 'inline-block',
     cursor: 'default',
   });
-  expect(component.state()).toMatchObject({
+  expect(component.state()).toEqual({
+    _radiumStyleState: {},
     doneAnimating: false,
     divAnimClass: '',
   });
@@ -55,12 +56,13 @@ test('NameLetter: mount with no animation after', () => {
     <NameLetter {...nameLetterProps} />
   );
 
-  expect(component.find('.name-letter__container').getDOMNode().style._values).toMatchObject({
+  expect(component.find('.name-letter__container').getDOMNode().style._values).toEqual({
     width: '20px',
     display: 'inline-block',
     cursor: 'default',
   });
-  expect(component.state()).toMatchObject({
+  expect(component.state()).toEqual({
+    _radiumStyleState: {},
     doneAnimating: false,
     divAnimClass: '',
   });
