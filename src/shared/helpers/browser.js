@@ -1,7 +1,7 @@
 import window from 'global/window';
-export function isDev() {
-  if (!window.location) {
+export function isDev(location = window.location) {
+  if (!location) {
     return true;
   }
-  return window.location.hostname === 'localhost';
+  return location.hostname === 'localhost';
 }

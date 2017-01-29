@@ -72,9 +72,10 @@ DA:4,0
 DA:6,0
 LF:3
 LH:0
-BRDA:3,0,0,0
-BRDA:3,0,1,0
-BRF:2
+BRDA:2,0,0,0
+BRDA:3,1,0,0
+BRDA:3,1,1,0
+BRF:3
 BRH:0
 end_of_record
 TN:
@@ -125,4 +126,13 @@ BRDA:6,0,0,2
 BRDA:6,0,1,0
 BRF:2
 BRH:1
+end_of_record
+TN:
+SF:/Users/ardokusuma/Documents/workspace/jkusuma-com/src/test/node/setup.js
+FNF:0
+FNH:0
+LF:0
+LH:0
+BRF:0
+BRH:0
 end_of_record

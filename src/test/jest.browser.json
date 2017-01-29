@@ -2,5 +2,8 @@
   "collectCoverage": true,
   "testPathDirs": [
     "src/test/browser/"
+  ],
+  "setupFiles": [
+    "./src/test/node/setup.js"
   ]
 }
