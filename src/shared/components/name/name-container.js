@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 
-import {configuredRadium} from '../../helpers/styles';
+import {configuredRadium, media} from '../../helpers/styles';
 
 const NameContainer = ({children, ...otherProps}) => {
   const styles = {
@@ -9,6 +9,10 @@ const NameContainer = ({children, ...otherProps}) => {
       top: 'calc(50% - 40px)',
       left: 'calc(50% - 110px)',
       lineHeight: '40px',
+      [media.portable]: {
+        lineHeight: '20px',
+        left: 'calc(50% - 52px)',
+      },
     },
   };
   return (

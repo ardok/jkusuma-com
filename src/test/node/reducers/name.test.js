@@ -21,4 +21,16 @@ describe('Reducer: name', () => {
       clickLetterAnimCount: 1,
     });
   });
+
+  it(`should handle ${actionTypes.CLICK_LETTER_ANIM_CLEAR}`, () => {
+    expect(
+      reducer({
+        clickLetterAnimCount: 3,
+      }, {
+        type: actionTypes.CLICK_LETTER_ANIM_CLEAR,
+      })
+    ).toEqual({
+      clickLetterAnimCount: 0,
+    });
+  });
 });

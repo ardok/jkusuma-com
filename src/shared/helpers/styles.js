@@ -24,6 +24,10 @@ export function configuredRadium(component) {
   })(component);
 }
 
+export const media = {
+  portable: '@media (max-width: 768px)',
+};
+
 // export const keyframes = {
 //   falling: radium.keyframes({
 //     '0%': {

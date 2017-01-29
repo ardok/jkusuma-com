@@ -32,7 +32,8 @@ class PBCircle extends Component {
     } = this;
 
     const options = {
-      color: '#455a64',
+      // color: '#455a64',
+      color: '#000',
       strokeWidth: 4,
       duration: PB_TIME,
     };

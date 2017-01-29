@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for shared/reducers/name.js</title>
+    <title>Code coverage report for shared/helpers/ga.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -16,32 +16,32 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">All files</a> / <a href="index.html">shared/reducers</a> name.js
+      <a href="../../index.html">All files</a> / <a href="index.html">shared/helpers</a> ga.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>8/8</span>
+        <span class='fraction'>0/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>0/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>0/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>8/8</span>
+        <span class='fraction'>0/5</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -73,57 +73,57 @@
 28</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {actionTypes} from '../constants/action';
-import {getClickLetterAnimCount, setClickLetterAnimCount, clearClickLetterAnimCount} from '../helpers/local-storage';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import window from 'global/window';
 &nbsp;
-const defaultState = {
-  clickLetterAnimCount: getClickLetterAnimCount(),
-};
+import {isDev} from './browser';
 &nbsp;
-export default (state = defaultState, action) =&gt; {
-  let clickLetterAnimCount;
-  switch (action.type) {
-    case actionTypes.CLICK_LETTER_ANIM:
-      clickLetterAnimCount = state.clickLetterAnimCount + 1;
-      setClickLetterAnimCount(clickLetterAnimCount);
-      return {
-        ...state,
-        clickLetterAnimCount,
-      };
-    case actionTypes.CLICK_LETTER_ANIM_CLEAR:
-      clearClickLetterAnimCount();
-      return {
-        ...state,
-        clickLetterAnimCount: 0,
-      };
-    default:
-      return state;
+function <span class="fstat-no" title="function not covered" >gaSend(</span>eventData = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
+<span class="cstat-no" title="statement not covered" >  if (!window.ga || isDev()) {</span>
+<span class="cstat-no" title="statement not covered" >    return;</span>
   }
-};
+<span class="cstat-no" title="statement not covered" >  window.ga('send', {</span>
+    hitType: 'event',
+    ...eventData,
+  });
+}
+&nbsp;
+export function <span class="fstat-no" title="function not covered" >gaClickAnimLetterCount(</span>) {
+<span class="cstat-no" title="statement not covered" >  gaSend({</span>
+    eventCategory: 'clickAnimLetterCount',
+    eventAction: 'click',
+  });
+}
+&nbsp;
+export function <span class="fstat-no" title="function not covered" >gaClickAnimLetter(</span>) {
+<span class="cstat-no" title="statement not covered" >  gaSend({</span>
+    eventCategory: 'clickAnimLetter',
+    eventAction: 'click',
+  });
+}
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

@@ -21,8 +21,6 @@ $nameBigFontSize: 120px;
 
 .name__last {
   font-size: 24px;
-  text-align: center;
-  margin-left: 16px;
 }
 
 .name--j {
@@ -57,4 +55,23 @@ $nameBigFontSize: 120px;
   animation-fill-mode: forwards;
   animation-delay: 0.4s;
   animation-timing-function: ease-in;
+}
+
+@media (max-width: 768px) {
+  .name__first {
+    font-size: 30px;
+  }
+  .name__last {
+    font-size: 12px;
+  }
+  .name--j,
+  .name--o {
+    font-size: $nameBigFontSize / 2;
+  }
+  .name--j {
+    left: -28px;
+  }
+  .name--o {
+    right: -35px;
+  }
 }
