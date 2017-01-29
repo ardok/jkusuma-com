@@ -4,6 +4,7 @@ import ProgressBar from 'react-progressbar.js';
 import IconBase from './icon-base';
 
 import {configuredRadium} from '../../helpers/styles';
+import {gaClickGitHub, gaClickLinkedIn} from '../../helpers/ga';
 
 const ProgressBarCircle = ProgressBar.Circle;
 const PB_TIME = 1450;
@@ -75,12 +76,14 @@ class PBCircle extends Component {
       href: 'https://www.linkedin.com/in/januardokusuma/',
       iconClassName: 'icon--linkedin ion-social-linkedin',
       style: styles.iconLinkedIn,
+      onLinkClick: gaClickLinkedIn,
     };
 
     const iconGitHubProps = {
       href: 'https://github.com/ardok/jkusuma-com',
       iconClassName: 'icon--github ion-social-github',
       style: styles.iconGitHub,
+      onLinkClick: gaClickGitHub,
     };
 
     return (

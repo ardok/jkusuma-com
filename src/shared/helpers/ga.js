@@ -25,3 +25,17 @@ export function gaClickAnimLetter() {
     eventAction: 'click',
   });
 }
+
+export function gaClickLinkedIn() {
+  gaSend({
+    eventCategory: 'clickLinkedIn',
+    eventAction: 'click',
+  });
+}
+
+export function gaClickGitHub() {
+  gaSend({
+    eventCategory: 'clickGitHub',
+    eventAction: 'click',
+  });
+}

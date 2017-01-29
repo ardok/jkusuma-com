@@ -2,18 +2,24 @@ import React, {PropTypes} from 'react';
 
 import {configuredRadium} from '../../helpers/styles';
 
-const IconBase = (props) => (
-  <div style={props.style}>
-    <a href={props.href}>
-      <i className={`transition ${props.iconClassName}`} />
-    </a>
-  </div>
-);
+function noop() {}
+
+const IconBase = (props) => {
+  const {style, href, iconClassName, onLinkClick = noop} = props;
+  return (
+    <div style={style}>
+      <a href={href} onClick={onLinkClick}>
+        <i className={`transition ${iconClassName}`} />
+      </a>
+    </div>
+  );
+};
 
 IconBase.propTypes = {
   style: PropTypes.object,
   iconClassName: PropTypes.string,
   href: PropTypes.string,
+  onLinkClick: PropTypes.func,
 };
 
 export default configuredRadium(IconBase);
