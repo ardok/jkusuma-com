@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">42.86% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>3/7</span>
+        <span class='fraction'>6/7</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">40% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>2/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/5</span>
+        <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">42.86% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/7</span>
+        <span class='fraction'>6/7</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -84,20 +84,16 @@
 39
 40
 41
-42</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+42
+43
+44</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -113,66 +109,76 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import window from 'global/window';
 &nbsp;
-import {isDev} from './browser';
+import browserHelper from './browser';
 &nbsp;
-function gaSend(eventData = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
-  <span class="missing-if-branch" title="else path not taken" >E</span>if (!window.ga || <span class="branch-1 cbranch-no" title="branch not covered" >isDev())</span> {
-    return;
-  }
-<span class="cstat-no" title="statement not covered" >  window.ga('send', {</span>
-    hitType: 'event',
-    ...eventData,
-  });
-}
+export default {
+  send(eventData = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!window.ga || <span class="branch-1 cbranch-no" title="branch not covered" >browserHelper.isDev())</span> {
+      return;
+    }
+<span class="cstat-no" title="statement not covered" >    window.ga('send', {</span>
+      hitType: 'event',
+      ...eventData,
+    });
+  },
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >gaClickAnimLetterCount(</span>) {
-<span class="cstat-no" title="statement not covered" >  gaSend({</span>
-    eventCategory: 'clickAnimLetterCount',
-    eventAction: 'click',
-  });
-}
+  clickAnimLetterCount() {
+    this.send({
+      eventCategory: 'clickAnimLetterCount',
+      eventAction: 'click',
+    });
+  },
 &nbsp;
-export function gaClickAnimLetter() {
-  gaSend({
-    eventCategory: 'clickAnimLetter',
-    eventAction: 'click',
-  });
-}
+  clickAnimLetter() {
+    this.send({
+      eventCategory: 'clickAnimLetter',
+      eventAction: 'click',
+    });
+  },
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >gaClickLinkedIn(</span>) {
-<span class="cstat-no" title="statement not covered" >  gaSend({</span>
-    eventCategory: 'clickLinkedIn',
-    eventAction: 'click',
-  });
-}
+  clickLinkedIn() {
+    this.send({
+      eventCategory: 'clickLinkedIn',
+      eventAction: 'click',
+    });
+  },
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >gaClickGitHub(</span>) {
-<span class="cstat-no" title="statement not covered" >  gaSend({</span>
-    eventCategory: 'clickGitHub',
-    eventAction: 'click',
-  });
-}
+  clickGitHub() {
+    this.send({
+      eventCategory: 'clickGitHub',
+      eventAction: 'click',
+    });
+  },
+};
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jan 28 2017 19:20:59 GMT-0800 (PST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Jan 29 2017 22:30:24 GMT-0800 (PST)
 </div>
 </div>
 <script src="../../prettify.js"></script>

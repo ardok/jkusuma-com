@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 
 import {configuredRadium} from '../../helpers/styles';
-import {gaClickAnimLetterCount} from '../../helpers/ga';
+import gaHelper from '../../helpers/ga';
 
 const NameClickCount = (props) => {
   const {clickLetterAnimCount, clearClickCount} = props;
@@ -16,9 +16,6 @@ const NameClickCount = (props) => {
       textAlign: 'center',
       cursor: 'default',
     },
-    clickText: {
-      fontSize: '10px',
-    },
   };
 
   return (
@@ -26,11 +23,10 @@ const NameClickCount = (props) => {
       className="name-click-count__container"
       style={styles.container}
       onClick={() => {
-        gaClickAnimLetterCount();
+        gaHelper.clickAnimLetterCount();
         clearClickCount();
       }}
     >
-      <div style={styles.clickText}>Click</div>
       <div className="name-click-count__count">{clickLetterAnimCount}</div>
     </div>
   );

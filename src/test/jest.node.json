@@ -1,6 +1,7 @@
 {
   "testEnvironment": "node",
   "collectCoverage": true,
+  "coverageReporters": ["none"],
   "testPathDirs": [
     "./src/test/node/"
   ],

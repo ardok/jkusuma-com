@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import deepExtend from 'deep-extend';
 
 import {configuredRadium} from '../../helpers/styles';
-import {gaClickAnimLetter} from '../../helpers/ga';
+import gaHelper from '../../helpers/ga';
 
 class NameLetter extends Component {
   constructor(props) {
@@ -49,7 +49,7 @@ class NameLetter extends Component {
       className: `name-letter__container ${className || ''} ${divAnimClass}`,
       onClick: (evt) => {
         if (!noAnimation && doneAnimating && !divAnimClass) {
-          gaClickAnimLetter();
+          gaHelper.clickAnimLetter();
           this.setState({
             divAnimClass: 'pb--anim-fall',
           });

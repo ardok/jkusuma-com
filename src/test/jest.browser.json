@@ -1,5 +1,6 @@
 {
   "collectCoverage": true,
+  "coverageReporters": ["none"],
   "testPathDirs": [
     "src/test/browser/"
   ],

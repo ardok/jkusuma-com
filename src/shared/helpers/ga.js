@@ -1,41 +1,43 @@
 import window from 'global/window';
 
-import {isDev} from './browser';
+import browserHelper from './browser';
 
-function gaSend(eventData = {}) {
-  if (!window.ga || isDev()) {
-    return;
-  }
-  window.ga('send', {
-    hitType: 'event',
-    ...eventData,
-  });
-}
+export default {
+  send(eventData = {}) {
+    if (!window.ga || browserHelper.isDev()) {
+      return;
+    }
+    window.ga('send', {
+      hitType: 'event',
+      ...eventData,
+    });
+  },
 
-export function gaClickAnimLetterCount() {
-  gaSend({
-    eventCategory: 'clickAnimLetterCount',
-    eventAction: 'click',
-  });
-}
+  clickAnimLetterCount() {
+    this.send({
+      eventCategory: 'clickAnimLetterCount',
+      eventAction: 'click',
+    });
+  },
 
-export function gaClickAnimLetter() {
-  gaSend({
-    eventCategory: 'clickAnimLetter',
-    eventAction: 'click',
-  });
-}
+  clickAnimLetter() {
+    this.send({
+      eventCategory: 'clickAnimLetter',
+      eventAction: 'click',
+    });
+  },
 
-export function gaClickLinkedIn() {
-  gaSend({
-    eventCategory: 'clickLinkedIn',
-    eventAction: 'click',
-  });
-}
+  clickLinkedIn() {
+    this.send({
+      eventCategory: 'clickLinkedIn',
+      eventAction: 'click',
+    });
+  },
 
-export function gaClickGitHub() {
-  gaSend({
-    eventCategory: 'clickGitHub',
-    eventAction: 'click',
-  });
-}
+  clickGitHub() {
+    this.send({
+      eventCategory: 'clickGitHub',
+      eventAction: 'click',
+    });
+  },
+};
