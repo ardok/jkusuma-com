@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import {clickAnimLetter, clearClickLetterAnimCount} from '../actions/name';
@@ -7,9 +8,9 @@ import IconsWrapper from '../components/icon/icons-wrapper';
 import NameMine from '../components/name/name-mine';
 import NameClickCount from '../components/name/name-click-count';
 
-const mapStateToProps = (state) => state;
+const mapStateToProps = state => state;
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   onLetterClick: () => {
     dispatch(clickAnimLetter());
   },
@@ -49,7 +50,13 @@ const IndexContainer = (props) => {
 IndexContainer.propTypes = {
   onLetterClick: PropTypes.func,
   clearClickLetterAnimCount: PropTypes.func,
-  nameState: PropTypes.object,
+  nameState: PropTypes.shape(),
+};
+
+IndexContainer.defaultProps = {
+  onLetterClick: () => {},
+  clearClickLetterAnimCount: () => {},
+  nameState: {},
 };
 
 export default connect(

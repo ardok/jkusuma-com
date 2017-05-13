@@ -1,4 +1,6 @@
-import React, {PropTypes} from 'react';
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import {configuredRadium} from '../../helpers/styles';
 import gaHelper from '../../helpers/ga';
@@ -34,7 +36,11 @@ const NameClickCount = (props) => {
 
 NameClickCount.propTypes = {
   clickLetterAnimCount: PropTypes.number,
-  clearClickCount: PropTypes.func,
+  clearClickCount: PropTypes.func.isRequired,
+};
+
+NameClickCount.defaultProps = {
+  clickLetterAnimCount: 0,
 };
 
 export default configuredRadium(NameClickCount);

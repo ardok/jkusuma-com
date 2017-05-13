@@ -1,4 +1,6 @@
-import React, {PropTypes} from 'react';
+/* eslint-disable react/no-unused-prop-types */
+import React from 'react';
+import PropTypes from 'prop-types';
 import Radium from 'radium';
 import randomNumber from 'random-number';
 
@@ -43,7 +45,7 @@ function getShakingLetters(props) {
   const {onLetterClick, clickLetterAnimCount} = props;
   return SHAKING_LETTERS.map((letter, idx) => (
     <NameLetter
-      key={idx}
+      key={`${letter}-${idx}`}
       style={clickLetterAnimCount === 0 ? getShakingAnimStyle() : {}}
       onClick={onLetterClick}
     >
@@ -77,6 +79,11 @@ const NameMine = (props) => {
 NameMine.propTypes = {
   onLetterClick: PropTypes.func,
   clickLetterAnimCount: PropTypes.number,
+};
+
+NameMine.defaultProps = {
+  onLetterClick: () => {},
+  clickLetterAnimCount: 0,
 };
 
 export default NameMine;

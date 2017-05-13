@@ -2,10 +2,7 @@
   "testEnvironment": "node",
   "collectCoverage": true,
   "coverageReporters": ["none"],
-  "testPathDirs": [
-    "./src/test/node/"
-  ],
-  "setupFiles": [
-    "./src/test/node/setup.js"
+  "testMatch": [
+    "**/test/node/**/*.test.js"
   ]
 }

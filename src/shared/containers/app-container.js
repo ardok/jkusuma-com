@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {StyleRoot} from 'radium';
 
 const AppContainer = ({children}) => (
@@ -10,7 +11,11 @@ const AppContainer = ({children}) => (
 );
 
 AppContainer.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.node,
+};
+
+AppContainer.defaultProps = {
+  children: null,
 };
 
 export default AppContainer;

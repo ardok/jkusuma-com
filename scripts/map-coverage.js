@@ -9,7 +9,7 @@ const istanbulCoverage = require('istanbul-lib-coverage');
 const map = istanbulCoverage.createCoverageMap();
 const reporter = createReporter();
 
-const mapFileCoverage = fileCoverage => {
+const mapFileCoverage = (fileCoverage) => {
   fileCoverage.path = fileCoverage.path
     .replace(/(.*packages\/.*\/)(build)(\/.*)/, '$1src$3');
   return fileCoverage;

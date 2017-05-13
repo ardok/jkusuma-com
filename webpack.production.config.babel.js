@@ -1,9 +1,8 @@
 import webpack from 'webpack';
-import objectAssign from 'object-assign';
 
 import webpackDefaultConfig from './webpack.config.babel';
 
-export default objectAssign({}, webpackDefaultConfig, {
+export default Object.assign({}, webpackDefaultConfig, {
   plugins: webpackDefaultConfig.plugins.concat([
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({

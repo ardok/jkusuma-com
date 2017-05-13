@@ -1,10 +1,10 @@
 import es6promise from 'es6-promise';
-es6promise.polyfill();
-
 import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import path from 'path';
 import webpack from 'webpack';
+
+es6promise.polyfill();
 
 const distPath = path.resolve(__dirname, 'dist');
 const mainCssPath = path.resolve(__dirname, 'src', 'client', 'stylesheets', 'main.scss');

@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import {configuredRadium} from '../../helpers/styles';
 
@@ -16,10 +17,17 @@ const IconBase = (props) => {
 };
 
 IconBase.propTypes = {
-  style: PropTypes.object,
+  style: PropTypes.shape(),
   iconClassName: PropTypes.string,
   href: PropTypes.string,
   onLinkClick: PropTypes.func,
+};
+
+IconBase.defaultProps = {
+  style: {},
+  iconClassName: '',
+  href: '',
+  onLinkClick: noop,
 };
 
 export default configuredRadium(IconBase);

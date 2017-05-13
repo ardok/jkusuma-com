@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import {configuredRadium} from '../../helpers/styles';
 
@@ -16,7 +17,11 @@ const NameInnerContainer = ({children, ...otherProps}) => {
 };
 
 NameInnerContainer.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.node,
+};
+
+NameInnerContainer.defaultProps = {
+  children: null,
 };
 
 export default configuredRadium(NameInnerContainer);

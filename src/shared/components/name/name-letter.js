@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import deepExtend from 'deep-extend';
 
 import {configuredRadium} from '../../helpers/styles';
@@ -27,7 +28,7 @@ class NameLetter extends Component {
         onClick,
         className,
         noAnimation,
-        ...otherProps,
+        ...otherProps
       },
       state: {
         doneAnimating,
@@ -68,8 +69,8 @@ class NameLetter extends Component {
 }
 
 NameLetter.propTypes = {
-  children: PropTypes.any,
-  style: PropTypes.object,
+  children: PropTypes.node,
+  style: PropTypes.shape(),
   onClick: PropTypes.func,
   className: PropTypes.string,
   noAnimation: PropTypes.bool,
@@ -77,6 +78,10 @@ NameLetter.propTypes = {
 
 NameLetter.defaultProps = {
   noAnimation: false,
+  children: null,
+  style: {},
+  onClick: () => {},
+  className: '',
 };
 
 export default configuredRadium(NameLetter);
