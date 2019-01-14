@@ -1,10 +1,9 @@
-import es6promise from 'es6-promise';
-import autoprefixer from 'autoprefixer';
+import {polyfill as es6promise} from 'es6-promise';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import path from 'path';
 import webpack from 'webpack';
 
-es6promise.polyfill();
+es6promise();
 
 const distPath = path.resolve(__dirname, 'dist');
 const mainCssPath = path.resolve(__dirname, 'src', 'client', 'stylesheets', 'main.scss');
@@ -44,19 +43,17 @@ export default {
         nodeModulesPath,
         testPath,
       ],
-      loader: 'babel-loader',
+      use: [
+        {
+          loader: 'babel-loader',
+        },
+      ],
     }, {
       test: /\.scss$/,
       exclude: [nodeModulesPath],
       use: ExtractTextPlugin.extract({
-        fallbackLoader: 'style-loader',
-        loader: [{
-          loader: 'css-loader',
-        }, {
-          loader: 'postcss-loader',
-        }, {
-          loader: 'sass-loader',
-        }],
+        fallback: 'style-loader',
+        use: ['css-loader', 'sass-loader'],
         publicPath,
       }),
     }],
@@ -76,11 +73,6 @@ export default {
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: true,
-      options: {
-        postcss: {
-          plugins: () => [autoprefixer],
-        },
-      },
     }),
   ],
 };

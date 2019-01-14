@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import {Route} from 'react-router';
 import {Provider} from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
-import {ConnectedRouter, routerMiddleware} from 'react-router-redux';
+import {ConnectedRouter, routerMiddleware} from 'connected-react-router';
 import {createStore, applyMiddleware} from 'redux';
 import document from 'global/document';
 
-import appReducer from '../../shared/reducers/index';
+import getAppReducer from '../../shared/reducers/index';
 
 import AppContainer from '../../shared/containers/app-container';
 import IndexContainer from '../../shared/containers/index-container';
@@ -18,7 +18,7 @@ const history = createHistory();
 const middleware = routerMiddleware(history);
 
 const store = createStore(
-  appReducer,
+  getAppReducer(history),
   applyMiddleware(middleware)
 );
 

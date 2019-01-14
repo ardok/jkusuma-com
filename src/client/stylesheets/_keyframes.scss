@@ -1,30 +1,3 @@
-@keyframes nameD {
-  0% {
-    transform: translateY(-1000px);
-  }
-  50% {
-    transform: translateY(-45px);
-  }
-  75% {
-    transform: translateY(-50px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-@keyframes nameDShake {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-14px) rotate(15deg);
-  }
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
-}
-
 @keyframes falling {
   0% {
     transform: rotate(0deg);
@@ -45,11 +18,35 @@
   }
 }
 
-@keyframes nameO {
+@keyframes squareCutHorizontal {
   0% {
-    transform: translateY(-1000px);
+    width: 0;
   }
   100% {
-    transform: translateY(0px);
+    width: 100%;
+  }
+}
+@keyframes squareCutVertical{
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+@keyframes squareCutBottom {
+  0% {
+    left: 100px;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes squareCutLeft {
+  0% {
+    top: 100px;
+  }
+  100% {
+    top: 0;
   }
 }

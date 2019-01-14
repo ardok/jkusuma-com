@@ -21,6 +21,7 @@ const NameClickCount = (props) => {
   };
 
   return (
+    // eslint-disable-next-line
     <div
       className="name-click-count__container"
       style={styles.container}

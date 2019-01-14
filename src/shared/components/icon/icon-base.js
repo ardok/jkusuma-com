@@ -6,7 +6,9 @@ import {configuredRadium} from '../../helpers/styles';
 function noop() {}
 
 const IconBase = (props) => {
-  const {style, href, iconClassName, onLinkClick = noop} = props;
+  const {
+    style, href, iconClassName, onLinkClick = noop,
+  } = props;
   return (
     <div style={style}>
       <a href={href} onClick={onLinkClick}>

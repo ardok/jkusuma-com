@@ -1,7 +1,9 @@
 {
   "collectCoverage": true,
+  "rootDir": "../../",
   "coverageReporters": ["none"],
   "testMatch": [
     "**/test/browser/**/*.test.js"
-  ]
+  ],
+  "setupFiles": ["<rootDir>/src/test/browser/setup.js"]
 }
