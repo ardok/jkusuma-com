@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
 import webpackDefaultConfig from './webpack.config.babel';
 
@@ -10,11 +11,8 @@ export default Object.assign({}, webpackDefaultConfig, {
         NODE_ENV: JSON.stringify('production'),
       },
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: true,
-      },
-    }),
   ]),
+  optimization: {
+    minimizer: [new UglifyJsPlugin()],
+  },
 });
