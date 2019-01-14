@@ -16,7 +16,7 @@ function getRandomInt(min, max) {
   });
 }
 
-const SHAKING_LETTERS = ['A', 'N', 'U', 'A', 'R'];
+const SHAKING_LETTERS = ['U', 'S', 'U', 'M'];
 
 function getShakingKeyframe() {
   return Radium.keyframes({
@@ -61,15 +61,13 @@ const NameMine = (props) => {
   return (
     <NameContainer>
       <NameInnerContainer>
-        <div className="name__first">
-          <NameLetter className="name--j" noAnimation>J</NameLetter>
-          {getShakingLetters(props)}
-          <NameLetter className="name--y pb--anim-fall">Y</NameLetter>
-          <NameLetter className="name--d" onClick={onLetterClick}>D</NameLetter>
-          <NameLetter className="name--o" noAnimation>O</NameLetter>
-        </div>
         <div className="name__last">
-          KUSUMA
+          <NameLetter className="name--k" onClick={onLetterClick}>K</NameLetter>
+          {getShakingLetters(props)}
+          <NameLetter className="name--a" onClick={onLetterClick}>A</NameLetter>
+        </div>
+        <div className="name__first">
+          ARDO
         </div>
       </NameInnerContainer>
     </NameContainer>

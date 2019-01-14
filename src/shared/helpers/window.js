@@ -1,8 +1,8 @@
-import dotty from 'dotty';
+import get from 'lodash.get';
 import window from 'global/window';
 
 export default {
   getHostname() {
-    return dotty.get(window, 'location.hostname');
+    return get(window, 'location.hostname');
   },
 };

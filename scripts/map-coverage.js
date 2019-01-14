@@ -1,3 +1,4 @@
+/* eslint-disable */
 /*
 https://github.com/facebook/jest/issues/2418
  */

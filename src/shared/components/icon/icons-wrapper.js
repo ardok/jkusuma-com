@@ -1,13 +1,96 @@
 import React, {Component} from 'react';
-import ProgressBar from 'react-progressbar.js';
 
 import IconBase from './icon-base';
 
 import {configuredRadium} from '../../helpers/styles';
 import gaHelper from '../../helpers/ga';
 
-const ProgressBarCircle = ProgressBar.Circle;
 const PB_TIME = 1450;
+
+const pbCircleStyle = {
+  width: '100px',
+  height: '100px',
+};
+
+const styleSquareCommon = {
+  backgroundColor: '#000',
+  position: 'absolute',
+};
+
+const stylesSquareAnimationCommon = {
+  animationDuration: `${PB_TIME}ms`,
+  animationFillMode: 'forwards',
+  animationTimingFunction: 'ease-in',
+};
+
+const styles = {
+  container: {
+    position: 'absolute',
+    left: 'calc(50% - 50px)',
+    top: 'calc(50% - 160px)',
+    zIndex: 1,
+  },
+  pbContainer: {
+    position: 'absolute',
+    zIndex: 1,
+    borderRadius: '50%',
+  },
+  pbCircle: pbCircleStyle,
+  iconsContainer: pbCircleStyle,
+  iconLinkedIn: {
+    position: 'absolute',
+    left: 'calc(50% - 13px)',
+    top: 0,
+    fontSize: '36px',
+  },
+  iconGitHub: {
+    position: 'absolute',
+    left: 'calc(50% - 15px)',
+    top: '45%',
+    fontSize: '36px',
+  },
+
+  squareCutContainer: {
+    width: '100px',
+    height: '100px',
+    top: '-9px',
+    position: 'absolute',
+    overflow: 'hidden',
+    backgroundColor: '#fafafa',
+    zIndex: 1,
+  },
+  squareCutTop: {
+    height: '2px',
+    top: 0,
+    ...styleSquareCommon,
+    animationName: 'squareCutHorizontal',
+    ...stylesSquareAnimationCommon,
+  },
+  squareCutRight: {
+    width: '2px',
+    right: 0,
+    top: 0,
+    ...styleSquareCommon,
+    animationName: 'squareCutVertical',
+    ...stylesSquareAnimationCommon,
+  },
+  squareCutBottom: {
+    height: '2px',
+    width: '100%',
+    bottom: 0,
+    animationName: 'squareCutBottom',
+    ...styleSquareCommon,
+    ...stylesSquareAnimationCommon,
+  },
+  squareCutLeft: {
+    width: '2px',
+    height: '100%',
+    left: 0,
+    animationName: 'squareCutLeft',
+    ...styleSquareCommon,
+    ...stylesSquareAnimationCommon,
+  },
+};
 
 class PBCircle extends Component {
   constructor(props) {
@@ -32,48 +115,8 @@ class PBCircle extends Component {
       },
     } = this;
 
-    const options = {
-      // color: '#455a64',
-      color: '#000',
-      strokeWidth: 4,
-      duration: PB_TIME,
-    };
-
-    const pbCircleStyle = {
-      width: '100px',
-      height: '100px',
-    };
-
-    const styles = {
-      container: {
-        position: 'absolute',
-        left: 'calc(50% - 50px)',
-        top: 'calc(50% - 160px)',
-        zIndex: 1,
-      },
-      pbContainer: {
-        position: 'absolute',
-        zIndex: 1,
-        borderRadius: '50%',
-      },
-      pbCircle: pbCircleStyle,
-      iconsContainer: pbCircleStyle,
-      iconLinkedIn: {
-        position: 'absolute',
-        left: 'calc(50% - 13px)',
-        top: 0,
-        fontSize: '36px',
-      },
-      iconGitHub: {
-        position: 'absolute',
-        left: 'calc(50% - 15px)',
-        top: '45%',
-        fontSize: '36px',
-      },
-    };
-
     const iconLinkedInProps = {
-      href: 'https://www.linkedin.com/in/januardokusuma/',
+      href: 'https://www.linkedin.com/in/ardokusuma/',
       iconClassName: 'icon--linkedin ion-social-linkedin',
       style: styles.iconLinkedIn,
       onLinkClick: gaHelper.clickLinkedIn,
@@ -88,13 +131,11 @@ class PBCircle extends Component {
 
     return (
       <div style={styles.container}>
-        <div className={`pb__container ${pbClassName}`} style={styles.pbContainer}>
-          <ProgressBarCircle
-            progress={1}
-            options={options}
-            initialAnimate
-            containerStyle={styles.pbCircle}
-          />
+        <div className={pbClassName} style={styles.squareCutContainer}>
+          <div style={styles.squareCutTop} />
+          <div style={styles.squareCutRight} />
+          <div style={styles.squareCutBottom} />
+          <div style={styles.squareCutLeft} />
         </div>
         <div style={styles.iconsContainer}>
           <IconBase {...iconLinkedInProps} />

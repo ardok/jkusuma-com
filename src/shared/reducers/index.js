@@ -1,9 +1,11 @@
 import {combineReducers} from 'redux';
-import {routerReducer} from 'react-router-redux';
+import {connectRouter} from 'connected-react-router';
 
 import nameReducer from './name';
 
-export default combineReducers({
-  nameState: nameReducer,
-  router: routerReducer,
-});
+export default function getAppReducer(history) {
+  return combineReducers({
+    nameState: nameReducer,
+    router: connectRouter(history),
+  });
+}

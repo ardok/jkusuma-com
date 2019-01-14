@@ -11,7 +11,7 @@ $nameBigFontSize: 120px;
   position: relative;
 }
 
-.name__first {
+.name__last {
   font-size: 60px;
 }
 
@@ -19,42 +19,24 @@ $nameBigFontSize: 120px;
   margin-left: $marginLeftSmall;
 }
 
-.name__last {
+.name__first {
   font-size: 24px;
+  margin-left: 3px;
 }
 
-.name--j {
+.name--k {
   position: absolute;
-  left: -54px;
+  top: 21px;
+  left: -65px;
   font-size: $nameBigFontSize;
 }
 
-// `D` letter will start first
-.name--d {
-  animation: nameD, nameDShake;
-  animation-delay: 0s, 1.4s;
-  animation-duration: 1s, 0.25s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in;
-}
-
-.name--y {
+.name--a {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 21px;
+  right: -60px;
+  font-size: $nameBigFontSize;
   animation-delay: 0.5s;
-}
-
-.name--o {
-  position: absolute;
-  right: -68px;
-  font-size: $nameBigFontSize;
-  transform: translateY(-1000px);
-  animation-name: nameO;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-delay: 0.4s;
-  animation-timing-function: ease-in;
 }
 
 @media (max-width: 768px) {
@@ -63,15 +45,5 @@ $nameBigFontSize: 120px;
   }
   .name__last {
     font-size: 12px;
-  }
-  .name--j,
-  .name--o {
-    font-size: $nameBigFontSize / 2;
-  }
-  .name--j {
-    left: -28px;
-  }
-  .name--o {
-    right: -35px;
   }
 }

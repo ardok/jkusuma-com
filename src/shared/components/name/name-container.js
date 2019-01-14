@@ -8,7 +8,7 @@ const NameContainer = ({children, ...otherProps}) => {
     container: {
       position: 'absolute',
       top: 'calc(50% - 40px)',
-      left: 'calc(50% - 110px)',
+      left: 'calc(50% - 65px)',
       lineHeight: '40px',
       [media.portable]: {
         lineHeight: '20px',
