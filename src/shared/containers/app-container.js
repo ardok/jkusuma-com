@@ -7,6 +7,16 @@ const AppContainer = ({children}) => (
     <div>
       {children}
     </div>
+    <div
+      style={{
+        position: 'absolute',
+        bottom: '10px',
+        left: '10px',
+        fontSize: '9px',
+      }}
+    >
+      This website is using Google Analytics
+    </div>
   </StyleRoot>
 );
 

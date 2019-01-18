@@ -8,7 +8,7 @@ Simple React app with Webpack. Mainly to familiarize myself with setting up a pr
 * `npm install`
 
 ### Technologies used
-* Webpack v2
+* Webpack v4
 * React + Redux
 * Combined inline styling using Radium + SCSS
 * `jest` for testing and `enzyme` for components
