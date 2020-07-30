@@ -1,5 +1,5 @@
 import sinon from 'sinon';
-import gaHelper from '../../../shared/helpers/ga';
+import gaHelper from '../../../utils/ga';
 
 test('Helper ga: clickAnimLetterCount', () => {
   const sendSpy = sinon.spy(gaHelper, 'send');

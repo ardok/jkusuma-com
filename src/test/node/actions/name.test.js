@@ -1,5 +1,5 @@
 import {clickAnimLetter, clearClickLetterAnimCount} from '../../../shared/actions/name';
-import {actionTypes} from '../../../shared/constants/action';
+import {actionTypes} from '../../../constants/action';
 
 describe('Action: name', () => {
   it('create correct clickAnimLetter action', () => {

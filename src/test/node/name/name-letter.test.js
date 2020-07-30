@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import NameLetter from '../../../shared/components/name/name-letter';
+import NameLetter from '../../../components/name/NameLetter';
 
 test('NameLetter: shallow', () => {
   const nameLetterProps = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'enzyme';
 
-import NameLetter from '../../../shared/components/name/name-letter';
+import NameLetter from '../../../components/name/NameLetter';
 
 jest.useFakeTimers();
 

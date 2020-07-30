@@ -1,6 +1,6 @@
 import sinon from 'sinon';
-import browserHelper from '../../../shared/helpers/browser';
-import windowHelper from '../../../shared/helpers/window';
+import browserHelper from '../../../utils/browser';
+import windowHelper from '../../../utils/window';
 
 test('Helper browser: isDev', () => {
   expect(browserHelper.isDev()).toBe(true);

@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'enzyme';
 
-import IconBase from '../../../shared/components/icon/icon-base';
+import IconBase from '../../../components/icon/IconBase';
 
 describe('IconBase', () => {
   it('mounts with no click', () => {

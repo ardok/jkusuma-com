@@ -1,36 +1,31 @@
+// @flow
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Route} from 'react-router';
-import {Provider} from 'react-redux';
-import createHistory from 'history/createBrowserHistory';
-import {ConnectedRouter, routerMiddleware} from 'connected-react-router';
-import {createStore, applyMiddleware} from 'redux';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import document from 'global/document';
+import { Provider as StyletronProvider, DebugEngine } from 'styletron-react';
+import { Client as Styletron } from 'styletron-engine-atomic';
 
-import getAppReducer from '../../shared/reducers/index';
+import { AppContainer } from '../../components/containers/AppContainer';
+import { RouteIndexContainer } from '../../components/containers/RouteIndexContainer';
+import { StyletronThemeProvider } from '../../utils/styletron';
 
-import AppContainer from '../../shared/containers/app-container';
-import IndexContainer from '../../shared/containers/index-container';
+const debug =
+  process.env.NODE_ENV === 'production' ? void 0 : new DebugEngine();
 
-// https://github.com/ReactTraining/react-router/tree/master/packages/react-router-redux
-const history = createHistory();
-
-const middleware = routerMiddleware(history);
-
-const store = createStore(
-  getAppReducer(history),
-  applyMiddleware(middleware)
-);
+const engine = new Styletron();
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <div>
-        <AppContainer>
-          <Route exact path="/" component={IndexContainer} />
-        </AppContainer>
-      </div>
-    </ConnectedRouter>
-  </Provider>,
+  <StyletronProvider value={engine} debug={debug} debugAfterHydration>
+    <StyletronThemeProvider>
+      <AppContainer>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={RouteIndexContainer} />
+          </Switch>
+        </Router>
+      </AppContainer>
+    </StyletronThemeProvider>
+  </StyletronProvider>,
   document.getElementById('app-content')
 );

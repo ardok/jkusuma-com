@@ -1,5 +1,5 @@
 import reducer from '../../../shared/reducers/name';
-import {actionTypes} from '../../../shared/constants/action';
+import {actionTypes} from '../../../constants/action';
 
 describe('Reducer: name', () => {
   it('should return the initial state', () => {

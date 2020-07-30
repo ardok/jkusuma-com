@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import IconBase from '../../../shared/components/icon/icon-base';
+import IconBase from '../../../components/icon/IconBase';
 
 test('IconBase: shallow', () => {
   const iconBaseProps = {

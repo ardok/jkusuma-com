@@ -1,13 +1,25 @@
-import {polyfill as es6promise} from 'es6-promise';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+// import { polyfill as es6promise } from 'es6-promise';
 import path from 'path';
 import webpack from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-es6promise();
+// es6promise();
 
 const distPath = path.resolve(__dirname, 'dist');
-const mainCssPath = path.resolve(__dirname, 'src', 'client', 'stylesheets', 'main.scss');
-const mainJsPath = path.resolve(__dirname, 'src', 'client', 'javascripts', 'main.js');
+const mainCssPath = path.resolve(
+  __dirname,
+  'src',
+  'client',
+  'stylesheets',
+  'main.scss'
+);
+const mainJsPath = path.resolve(
+  __dirname,
+  'src',
+  'client',
+  'javascripts',
+  'main.js'
+);
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const testPath = path.resolve(__dirname, 'src', 'test');
 
@@ -21,10 +33,7 @@ function getDevTool() {
 }
 
 export default {
-  entry: [
-    mainJsPath,
-    mainCssPath,
-  ],
+  entry: [mainJsPath, mainCssPath],
   devServer: {
     publicPath,
     port: 8080,
@@ -37,38 +46,49 @@ export default {
   },
   devtool: getDevTool(),
   module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: [
-        nodeModulesPath,
-        testPath,
-      ],
-      use: [
-        {
-          loader: 'babel-loader',
-        },
-      ],
-    }, {
-      test: /\.scss$/,
-      exclude: [nodeModulesPath],
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: ['css-loader', 'sass-loader'],
-        publicPath,
-      }),
-    }],
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: [nodeModulesPath, testPath],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-react', '@babel/preset-flow'],
+            },
+          },
+        ],
+      },
+      {
+        test: /\.scss$/,
+        exclude: [nodeModulesPath],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath,
+            },
+          },
+          'css-loader',
+          'sass-loader',
+        ],
+      },
+    ],
   },
   resolve: {
     extensions: ['.js', '.json', '.css', '.scss', '.html'],
     modules: ['node_modules', 'src'],
     alias: {
-      'material-colors': path.resolve(__dirname, 'node_modules/material-colors/dist/colors.scss'),
+      'material-colors': path.resolve(
+        __dirname,
+        'node_modules/material-colors/dist/colors.scss'
+      ),
     },
   },
   plugins: [
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: 'styles/main.css',
-      allChunks: true,
+      chunkFilename: '[id].css',
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
