@@ -2,7 +2,10 @@
 import React from 'react';
 import { styled } from 'styletron-react';
 
-import { GAClass } from '../../utils/ga';
+import {
+  useAppState,
+  dispatchClearNameClickCount,
+} from '../../utils/app-state';
 
 const StyledWrapper = styled('div', {
   position: 'absolute',
@@ -11,25 +14,16 @@ const StyledWrapper = styled('div', {
   cursor: 'default',
 });
 
-type TProps = {
-  clickLetterAnimCount: number,
-  clearClickCount: () => any,
-};
-
-const NameClickCount = (props: TProps) => {
-  const { clickLetterAnimCount, clearClickCount } = props;
-  if (typeof clickLetterAnimCount !== 'number') {
-    return null;
-  }
-
+const NameClickCount = () => {
+  const [state, dispatch] = useAppState();
+  const { nameClickCount } = state;
   return (
     <StyledWrapper
       onClick={() => {
-        GAClass.clickAnimLetterCount();
-        clearClickCount();
+        dispatchClearNameClickCount(dispatch);
       }}
     >
-      <div>{clickLetterAnimCount}</div>
+      <div>{nameClickCount}</div>
     </StyledWrapper>
   );
 };

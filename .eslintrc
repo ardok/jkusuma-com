@@ -2,6 +2,7 @@
   "parser": "babel-eslint",
   "plugins": ["prettier"],
   "extends": [
+    "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",
     "prettier/flowtype",
     "prettier/react",

@@ -21,7 +21,6 @@ const mainJsPath = path.resolve(
   'main.js'
 );
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
-const testPath = path.resolve(__dirname, 'src', 'test');
 
 const publicPath = '/dist/';
 
@@ -49,7 +48,10 @@ export default {
     rules: [
       {
         test: /\.js$/,
-        exclude: [nodeModulesPath, testPath],
+        exclude: [
+          nodeModulesPath,
+          `${path.resolve(__dirname, 'src')}/**/__tests__/**`,
+        ],
         use: [
           {
             loader: 'babel-loader',

@@ -1,6 +1,10 @@
 // @flow
 import { styled } from '../../utils/styletron';
-import { MEDIA_QUERY_PHONE } from '../../utils/styles';
+import {
+  FALLING_ANIMATION,
+  JUMP_FALLING_ANIMATION,
+  MEDIA_QUERY_PHONE,
+} from '../../utils/styles';
 
 const NAME_LETTER_OVERRIDES_ROOT_STYLE_COMMON = {
   position: 'absolute',
@@ -55,3 +59,9 @@ export const StyledNameLast = styled('div', {
     fontSize: '30px',
   },
 });
+
+const ANIMATIONS = [FALLING_ANIMATION, JUMP_FALLING_ANIMATION];
+export function getRandomAnimation() {
+  const idx = Math.floor(Math.random() * 2);
+  return ANIMATIONS[idx];
+}

@@ -17,6 +17,8 @@ const THEME = {
     indigo: INDIGO,
     indigo500: INDIGO,
     indigo800: '#283593',
+
+    grey100: '#f5f5f5',
   },
 };
 

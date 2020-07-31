@@ -1,12 +1,11 @@
 import window from 'global/window';
-
-import browserHelper from './browser';
+import { isDev } from './env';
 
 class GA {
   constructor() {}
 
   send(eventData = {}) {
-    if (!window.ga || browserHelper.isDev()) {
+    if (!window.ga || isDev()) {
       return;
     }
     window.ga('send', {
@@ -16,6 +15,7 @@ class GA {
   }
 
   clickAnimLetterCount() {
+    // Clicking the count text on top right
     this.send({
       eventCategory: 'clickAnimLetterCount',
       eventAction: 'click',
@@ -23,6 +23,7 @@ class GA {
   }
 
   clickAnimLetter() {
+    // Clicking the name letters in the middle of the page
     this.send({
       eventCategory: 'clickAnimLetter',
       eventAction: 'click',

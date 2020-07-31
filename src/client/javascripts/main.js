@@ -9,6 +9,7 @@ import { Client as Styletron } from 'styletron-engine-atomic';
 import { AppContainer } from '../../components/containers/AppContainer';
 import { RouteIndexContainer } from '../../components/containers/RouteIndexContainer';
 import { StyletronThemeProvider } from '../../utils/styletron';
+import { AppStateProvider } from '../../utils/app-state';
 
 const debug =
   process.env.NODE_ENV === 'production' ? void 0 : new DebugEngine();
@@ -18,13 +19,15 @@ const engine = new Styletron();
 ReactDOM.render(
   <StyletronProvider value={engine} debug={debug} debugAfterHydration>
     <StyletronThemeProvider>
-      <AppContainer>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={RouteIndexContainer} />
-          </Switch>
-        </Router>
-      </AppContainer>
+      <AppStateProvider>
+        <AppContainer>
+          <Router>
+            <Switch>
+              <Route exact path="/" component={RouteIndexContainer} />
+            </Switch>
+          </Router>
+        </AppContainer>
+      </AppStateProvider>
     </StyletronThemeProvider>
   </StyletronProvider>,
   document.getElementById('app-content')
