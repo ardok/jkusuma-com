@@ -42,7 +42,6 @@ const JUMP_FALLING_ANIMATION_NAME = {
   '100%': {
     transform: 'scale(1, 1) translateY(400px)',
     opacity: 0,
-    display: 'hidden',
   },
 };
 export const JUMP_FALLING_ANIMATION = {

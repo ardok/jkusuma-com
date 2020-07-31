@@ -1,5 +1,5 @@
 // @flow
-import React, { useReducer, useContext } from 'react';
+import React, { useReducer, useContext, useMemo } from 'react';
 import { GAClass } from './ga';
 import {
   clearClickLetterAnimCount,
@@ -40,20 +40,6 @@ function appStateReducer(
   }
 }
 
-export function dispatchNameClick(dispatch: any) {
-  GAClass.clickAnimLetter();
-  dispatch({
-    type: APP_STATE_ACTION.NAME_CLICK,
-  });
-}
-
-export function dispatchClearNameClickCount(dispatch: any) {
-  GAClass.clickAnimLetterCount();
-  dispatch({
-    type: APP_STATE_ACTION.NAME_CLICK_CLEAR,
-  });
-}
-
 export const AppStateProvider = ({ children }: { children: React$Node }) => {
   const [state, dispatch] = useReducer(appStateReducer, DEFAULT_STATE);
   return (
@@ -85,6 +71,29 @@ const useAppStateContextDispatch = () => {
   return context;
 };
 
+function dispatchNameClick(dispatch: any) {
+  GAClass.clickAnimLetter();
+  dispatch({
+    type: APP_STATE_ACTION.NAME_CLICK,
+  });
+}
+
+function dispatchClearNameClickCount(dispatch: any) {
+  GAClass.clickAnimLetterCount();
+  dispatch({
+    type: APP_STATE_ACTION.NAME_CLICK_CLEAR,
+  });
+}
+
 export const useAppState = () => {
-  return [useAppStateContext(), useAppStateContextDispatch()];
+  const dispatch = useAppStateContextDispatch();
+  const dispatchers = useMemo(() => {
+    return {
+      dispatch,
+      dispatchClearNameClickCount: (...p: any) =>
+        dispatchClearNameClickCount(dispatch, ...p),
+      dispatchNameClick: (...p: any) => dispatchNameClick(dispatch, ...p),
+    };
+  }, [dispatch]);
+  return [useAppStateContext(), dispatchers];
 };

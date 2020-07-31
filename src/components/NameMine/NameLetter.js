@@ -5,16 +5,16 @@ import { styled } from '../../utils/styletron';
 import { getRandomAnimation } from './styles';
 import type { TStyle } from '../../utils/types.flow';
 
-export const StyledNameLetter = styled<{ $animating: boolean }>(
-  'div',
-  ({ $animating, $animation }) => {
-    return {
-      display: 'inline-block',
-      cursor: 'default',
-      ...($animating ? $animation : {}),
-    };
-  }
-);
+export const StyledNameLetter = styled<{
+  $animating: boolean,
+  $animation: { [string]: any },
+}>('div', ({ $animating, $animation }) => {
+  return {
+    display: 'inline-block',
+    cursor: 'default',
+    ...($animating ? $animation : {}),
+  };
+});
 
 type TProps = {
   onClick?: (Event) => any,
