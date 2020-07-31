@@ -1,35 +1,4 @@
-@import '~material-colors';
-
-@import 'variables';
-// `keyframes` should come first because it is being used in `animations`
-@import 'keyframes';
-@import 'icon';
-
-@import 'name';
-@import 'progress-bar';
-
 body {
   font-family: 'Roboto Condensed', sans-serif;
-}
-
-.radial-bg {
-  background-color: $md-grey-50;
-  //background: radial-gradient(circle, $md-blue-grey-300 25%, $md-blue-grey-200 50%, $md-blue-grey-100 75%, $md-blue-grey-50 100%);
-  //background-attachment: fixed;
-}
-
-.display--inline-block {
-  display: inline-block;
-}
-
-.cursor--default {
-  cursor: default;
-}
-
-.margin-left--small {
-  margin-left: $marginLeftSmall;
-}
-
-.transition {
-  transition: all 200ms;
+  overflow: hidden;
 }

@@ -1,5 +1,6 @@
 import webpack from 'webpack';
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
+import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 
 import webpackDefaultConfig from './webpack.config.babel';
 
@@ -13,6 +14,7 @@ export default Object.assign({}, webpackDefaultConfig, {
     }),
   ]),
   optimization: {
-    minimizer: [new UglifyJsPlugin()],
+    minimize: true,
+    minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin()],
   },
 });
