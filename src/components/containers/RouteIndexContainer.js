@@ -1,9 +1,9 @@
 // @flow
 import React from 'react';
 
-import { PersonalIcons } from '../PersonalIcons/PersonalIcons';
-import { NameClickCount } from '../name/NameClickCount';
-import { NameMine } from '../name/NameMine';
+import { PersonalIcons } from '../PersonalIcons';
+import { NameMine } from '../NameMine';
+import { NameClickCount } from '../NameClickCount';
 
 const RouteIndexContainer = () => {
   return (

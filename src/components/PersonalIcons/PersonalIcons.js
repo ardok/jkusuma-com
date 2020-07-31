@@ -35,4 +35,4 @@ const PersonalIcons = () => {
   );
 };
 
-export { PersonalIcons };
+export default PersonalIcons;

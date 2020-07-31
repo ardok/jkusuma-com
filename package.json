@@ -73,7 +73,7 @@
     "lintfix": "eslint --fix .",
     "jest": "jest --passWithNoTests --config=src/test-utils/jest-config.node.js && jest --passWithNoTests --config=src/test-utils/jest-config.browser.js",
     "postinstall": "rimraf node_modules/jest-runtime/node_modules/babel-core node_modules/jest-config/node_modules/babel-core",
-    "test": "yarn jest && node ./scripts/map-coverage.js && yarn lint && yarn flow"
+    "test": "yarn lint && yarn flow && yarn jest && node ./scripts/map-coverage.js"
   },
   "engines": {
     "yarn": "1.19.0",
