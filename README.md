@@ -9,10 +9,10 @@ Simple React app with Webpack. Mainly to familiarize myself with setting up a pr
 
 ### Technologies used
 * Webpack v4
-* React + Redux
-* Combined inline styling using Radium + SCSS
-* `jest` for testing and `enzyme` for components
-* Basic `eslint` with Airbnb `eslint` config
+* React
+* Styletron (css in js)
+* `jest` for testing and `@testing-library/react`.
+* `eslint` with `prettier`.
 
 #### Wishlist
 * Hopefully could use [Cypress](https://www.cypress.io/) for e2e testing

@@ -1,9 +1,6 @@
-// import { polyfill as es6promise } from 'es6-promise';
 import path from 'path';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-
-// es6promise();
 
 const distPath = path.resolve(__dirname, 'dist');
 const mainCssPath = path.resolve(
