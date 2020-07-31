@@ -29,6 +29,7 @@ type TProps = {
 
 const NameLetter = ({ onClick, noAnimation, overrides, children }: TProps) => {
   const [animating, setAnimating] = useState(false);
+  const [hasAnimationEnded, setHasAnimationEnded] = useState(false);
   const animation = useRef(getRandomAnimation()).current;
 
   const rootOverridesStyle = overrides?.Root?.style;
@@ -45,7 +46,17 @@ const NameLetter = ({ onClick, noAnimation, overrides, children }: TProps) => {
           }
         }
       }}
-      style={rootOverridesStyle}
+      onAnimationEnd={() => setHasAnimationEnded(true)}
+      style={
+        hasAnimationEnded
+          ? {
+              // This is to prevent scrolling
+              ...rootOverridesStyle,
+              animationFillMode: 'none',
+              opacity: 0,
+            }
+          : rootOverridesStyle
+      }
     >
       {children}
     </StyledNameLetter>
