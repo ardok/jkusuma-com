@@ -1,4 +1,4 @@
-Code repo for jkusuma.com using:
+Code repo for [jkusuma.com](https://jkusuma.com) using:
 * Next.js
 * Styletron
 * jest / @testing-library

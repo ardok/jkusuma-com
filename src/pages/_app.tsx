@@ -6,6 +6,7 @@ import Script from 'next/script';
 import { styletron } from '../common/utils/styletron';
 import { useStyletron } from '../common/utils/styletron';
 import { AppStateProvider } from '../common/hooks/app-state';
+import { usePageTransitionFix } from '../common/hooks/use-page-transition-fix';
 
 const ComponentWrapper = ({ children }: { children: React.ReactNode }) => {
   const [css] = useStyletron();
@@ -22,6 +23,7 @@ const ComponentWrapper = ({ children }: { children: React.ReactNode }) => {
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
+  usePageTransitionFix();
   return (
     <>
       {/*
