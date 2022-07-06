@@ -1,19 +1,8 @@
-# jkusuma-com
-Repo for hosting jkusuma.com
+Code repo for jkusuma.com using:
+* Next.js
+* Styletron
+* jest / @testing-library
 
-Simple React app with Webpack. Mainly to familiarize myself with setting up a project the technologies mentioned below.
+Deployment is following this [LinkedIn pulse](https://www.linkedin.com/pulse/deploy-nextjs-app-github-pages-federico-antu%C3%B1a).
 
-### Dev
-* Make sure to use correct node and npm version specified in engines under `package.json`.
-* `npm install`
-
-### Technologies used
-* Webpack v4
-* React
-* Styletron (css in js)
-* `jest` for testing and `@testing-library/react`.
-* `eslint` with `prettier`.
-
-#### Wishlist
-* Hopefully could use [Cypress](https://www.cypress.io/) for e2e testing
-* Migrate all CSS styling to be inline just to get more familiar with inline styling
+Moving from `master` to `main` branch is following this [guide](https://pythonforundergradengineers.com/how-to-change-a-github-repo-from-master-to-main.html).

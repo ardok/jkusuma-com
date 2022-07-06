@@ -1,0 +1,1 @@
+export { NameMine } from './NameMine';
