@@ -10,7 +10,8 @@
     "lint": "eslint src/ jest/ .eslintrc.js",
     "test": "jest --config=jest/jest.config.js",
     "cover": "yarn test --collectCoverage",
-    "export": "yarn build && next export"
+    "export": "yarn build && next export",
+    "install-pure": "yarn install --regsitry=https://registry.npmjs.org/"
   },
   "dependencies": {
     "global": "^4.4.0",
