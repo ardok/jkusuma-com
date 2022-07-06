@@ -9,16 +9,6 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-        <script
-          async
-          type="module"
-          src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-        />
-        <script
-          async
-          noModule
-          src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-        />
         {/* eslint-disable-next-line @next/next/next-script-for-ga */}
         <script
           async

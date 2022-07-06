@@ -1,12 +1,12 @@
 import React from 'react';
 
-// import { useAppState } from '../utils/app-state';
 import { useStyletron } from '../utils/styletron';
+import { useAppState } from '../hooks/app-state';
 
 const NameClickCount = () => {
   const [css, theme] = useStyletron();
-  // const [state, { dispatchClearNameClickCount }] = useAppState();
-  // const { nameClickCount } = state;
+  const [state, { dispatchClearNameClickCount }] = useAppState();
+  const { nameClickCount } = state;
   return (
     <div
       className={css({
@@ -16,9 +16,9 @@ const NameClickCount = () => {
         cursor: 'default',
       })}
       onClick={() => {
-        // dispatchClearNameClickCount();
+        dispatchClearNameClickCount();
       }}>
-      {/*<div>{nameClickCount}</div>*/}
+      <div>{nameClickCount}</div>
     </div>
   );
 };

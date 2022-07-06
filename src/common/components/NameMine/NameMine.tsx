@@ -9,8 +9,8 @@ import {
   NAME_LETTER_OVERRIDES_A,
   NAME_LETTER_OVERRIDES_K,
 } from './styles';
-// import { useAppState } from '../../utils/app-state';
 import { styled } from '../../utils/styletron';
+import { useAppState } from '../../hooks/app-state';
 
 const MID_LETTERS = ['U', 'S', 'U', 'M'];
 
@@ -31,18 +31,13 @@ function getMidLetters(props: { onLetterClick: () => any }) {
 }
 
 const NameMine = () => {
-  // const [, { dispatchNameClick }] = useAppState();
+  const [, { dispatchNameClick }] = useAppState();
   const [clickCount, setClickCount] = useState(0);
 
-  const onLetterClick = useCallback(
-    () => {
-      setClickCount((c) => c + 1);
-      // dispatchNameClick();
-    },
-    [
-      /*dispatchNameClick*/
-    ]
-  );
+  const onLetterClick = useCallback(() => {
+    setClickCount((c) => c + 1);
+    dispatchNameClick();
+  }, [dispatchNameClick]);
 
   const midLetterProps = useMemo(
     () => ({

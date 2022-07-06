@@ -20,7 +20,7 @@ const IconGitHub = () => {
         onLinkClick={() => GAClass.clickGitHub()}
         data-testid="link-github">
         {/* @ts-ignore */}
-        <ion-icon name="logo-github" title="icon-github"></ion-icon>
+        <ion-icon name="logo-github" title="icon-github" />
       </IconBase>
     </StyledWrapper>
   );

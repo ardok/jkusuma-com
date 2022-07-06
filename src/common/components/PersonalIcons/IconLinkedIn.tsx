@@ -19,7 +19,7 @@ const IconLinkedIn = () => {
         href="https://www.linkedin.com/in/ardokusuma/"
         onLinkClick={() => GAClass.clickLinkedIn()}>
         {/* @ts-ignore */}
-        <ion-icon name="logo-linkedin"></ion-icon>
+        <ion-icon name="logo-linkedin" />
       </IconBase>
     </StyledWrapper>
   );

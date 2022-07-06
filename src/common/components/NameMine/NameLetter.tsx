@@ -11,7 +11,7 @@ export const StyledNameLetter = styled(
       cursor: 'default',
       ...($animating ? $animation : {}),
     };
-  }
+  },
 );
 
 const NameLetter = ({
