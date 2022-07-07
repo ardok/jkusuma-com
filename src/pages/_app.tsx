@@ -7,7 +7,7 @@ import Head from 'next/head';
 import { styletron } from '../common/utils/styletron';
 import { useStyletron } from '../common/utils/styletron';
 import { AppStateProvider } from '../common/hooks/app-state';
-import { usePageTransitionFix } from '../common/hooks/use-page-transition-fix';
+// import { usePageTransitionFix } from '../common/hooks/use-page-transition-fix';
 
 const ComponentWrapper = ({ children }: { children: React.ReactNode }) => {
   const [css] = useStyletron();
@@ -24,7 +24,7 @@ const ComponentWrapper = ({ children }: { children: React.ReactNode }) => {
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
-  usePageTransitionFix();
+  // usePageTransitionFix();
   return (
     <>
       {/*
@@ -33,6 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       */}
       <Head>
         <title>Ardo Kusuma</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" />
       <StyletronProvider value={styletron}>
