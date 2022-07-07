@@ -11,7 +11,7 @@ export const StyledNameLetter = styled(
       cursor: 'default',
       ...($animating ? $animation : {}),
     };
-  },
+  }
 );
 
 const NameLetter = ({
@@ -48,7 +48,7 @@ const NameLetter = ({
         }
       }}
       onAnimationEnd={() => setHasAnimationEnded(true)}
-      style={
+      $style={
         hasAnimationEnded
           ? {
             // This is to prevent scrolling
