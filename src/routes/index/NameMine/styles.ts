@@ -4,7 +4,7 @@ import {
   FALLING_ANIMATION,
   JUMP_FALLING_ANIMATION,
   MEDIA_QUERY_PHONE,
-} from '../../utils/styles';
+} from '../../../common/utils/styles';
 
 const NAME_LETTER_OVERRIDES_ROOT_STYLE_COMMON = {
   position: 'absolute',

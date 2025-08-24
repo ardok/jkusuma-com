@@ -3,7 +3,7 @@
 import { css } from '@emotion/css';
 import React, { useEffect, useState } from 'react';
 
-import { useAppState } from '../hooks/app-state';
+import { useAppState } from '../../common/hooks/app-state';
 
 const NameClickCount = () => {
   const [state, { dispatchClearNameClickCount }] = useAppState();

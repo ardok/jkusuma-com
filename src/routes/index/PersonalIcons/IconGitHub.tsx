@@ -3,7 +3,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import { styled } from '@mui/material/styles';
 import React from 'react';
 
-import { GAClass } from '../../utils/ga';
+import { GAClass } from '../../../common/utils/ga';
 import { IconBase } from './IconBase';
 
 const StyledWrapper = styled('div')({

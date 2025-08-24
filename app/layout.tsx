@@ -34,7 +34,7 @@ async function RootLayout({ children }: { children: ReactNode }) {
         https://github.com/vercel/next.js/discussions/22388#discussioncomment-2626860
         */}
       <GoogleAnalytics gaId="G-ETXMEFPMRQ" />
-      <body style={{ overflow: 'hidden' }}>
+      <body>
         <InitColorSchemeScript attribute="class" />
         <ClientProvider initialThemeMode={themeModeFromCookie || 'light'}>
           <main>{children}</main>

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "yarn lint && next build",
+    "build": "yarn lint --fix && next build",
     "start": "next start",
     "lint__old": "next lint",
     "lint": "eslint app/ src/ jest/ eslint.config.js",

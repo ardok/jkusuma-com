@@ -1,10 +1,10 @@
 import { css } from '@emotion/css';
 import type { NextPage } from 'next';
 
-import { NameClickCount } from '../src/common/components/NameClickCount';
-import { NameMine } from '../src/common/components/NameMine';
-import { PersonalIcons } from '../src/common/components/PersonalIcons';
-import { UseHttpsPrompt } from '../src/common/components/UseHttpsPrompt';
+import { NameClickCount } from '../src/routes/index/NameClickCount';
+import { NameMine } from '../src/routes/index/NameMine';
+import { PersonalIcons } from '../src/routes/index/PersonalIcons';
+import { UseHttpsPrompt } from '../src/routes/index/UseHttpsPrompt';
 
 const Home: NextPage = () => {
   return (
