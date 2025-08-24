@@ -1,18 +1,19 @@
 'use client';
-import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+// import { styled } from '@mui/material/styles';
 import React from 'react';
 
 function noop() {}
 
-const StyledLink = styled('a')(({ theme }) => {
-  return {
-    color: 'inherit',
-    ':hover': {
-      opacity: 0.8,
-    },
-    transition: 'opacity 200ms',
-  };
-});
+// const StyledLink = styled('a')(({ theme }) => {
+//   return {
+//     color: 'inherit',
+//     ':hover': {
+//       opacity: 0.8,
+//     },
+//     transition: 'opacity 200ms',
+//   };
+// });
 
 type PropsT = {
   href: string;
@@ -23,9 +24,9 @@ type PropsT = {
 const IconBase = (props: PropsT) => {
   const { href = '', onLinkClick = noop, children, ...rest } = props;
   return (
-    <StyledLink {...rest} href={href} onClick={onLinkClick}>
+    <IconButton {...rest} href={href} onClick={onLinkClick}>
       {children}
-    </StyledLink>
+    </IconButton>
   );
 };
 

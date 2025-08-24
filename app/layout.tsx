@@ -2,6 +2,7 @@ import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers'; // server-only
+import { headers } from 'next/headers';
 import React, { ReactNode } from 'react';
 
 import { ClientProvider } from '../src/providers/ClientProvider';
@@ -27,17 +28,41 @@ async function RootLayout({ children }: { children: ReactNode }) {
   const themeModeFromCookie = cookieStore.get('theme')?.value as
     | ThemeMode
     | undefined;
+
+  const initialCookies: Record<string, string> = {};
+  // Convert cookie store to plain object
+  cookieStore.getAll().forEach((c) => {
+    initialCookies[c.name] = c.value;
+  });
+
+  const pathname = (await headers()).get('pathname');
+
   return (
-    <html suppressHydrationWarning>
+    <html
+      suppressHydrationWarning
+      style={{
+        ...(pathname === '/login' ? { height: '100%' } : {}),
+        margin: 0,
+      }}
+      {...(themeModeFromCookie === 'dark'
+        ? { 'data-dark': '' }
+        : { 'data-light': '' })}>
       {/*
         Putting the script here because otherwise nextjs will add some extra property into it somehow.
         https://github.com/vercel/next.js/discussions/22388#discussioncomment-2626860
         */}
       <GoogleAnalytics gaId="G-ETXMEFPMRQ" />
-      <body>
+      <body style={{ height: 'inherit' }}>
         <InitColorSchemeScript attribute="class" />
-        <ClientProvider initialThemeMode={themeModeFromCookie || 'light'}>
-          <main>{children}</main>
+        <ClientProvider
+          initialThemeMode={themeModeFromCookie || 'light'}
+          initialCookies={initialCookies}>
+          <main
+            style={{
+              height: 'inherit',
+            }}>
+            {children}
+          </main>
         </ClientProvider>
         <script
           dangerouslySetInnerHTML={{
