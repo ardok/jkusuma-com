@@ -35,14 +35,14 @@ const Doc2: NextPage = () => {
         <Card
           variant="outlined"
           sx={(theme) => ({
-            backgroundColor: grey[100],
+            backgroundColor: theme.palette.grey[100],
             width: '350px',
             height: '400px',
             display: 'flex',
             alignItems: 'center',
             position: 'relative',
             ...theme.applyStyles('dark', {
-              backgroundColor: grey[900],
+              backgroundColor: theme.palette.grey[800],
             }),
           })}>
           <CardContent>
