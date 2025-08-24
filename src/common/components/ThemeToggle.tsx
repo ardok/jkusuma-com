@@ -1,11 +1,13 @@
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Box from '@mui/material/Box';
+import { useColorScheme } from '@mui/material/styles';
 import Switch from '@mui/material/Switch';
 
 import { useThemeProvider } from '../../theme';
 
 export const ThemeToggle = () => {
   const { mode, setMode } = useThemeProvider();
+  const { setMode: colorSchemeSetMode } = useColorScheme();
   return (
     <Box
       sx={(theme) => ({
@@ -19,6 +21,7 @@ export const ThemeToggle = () => {
         checked={mode === 'dark'}
         onChange={() => {
           const newMode = mode === 'dark' ? 'light' : 'dark';
+          colorSchemeSetMode(newMode);
           setMode(newMode);
         }}
       />
