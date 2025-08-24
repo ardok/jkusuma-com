@@ -1,4 +1,5 @@
-import React, { useReducer, useContext, useMemo, useEffect } from 'react';
+import React, { useContext, useEffect, useMemo, useReducer } from 'react';
+
 import { GAClass } from '../utils/ga';
 import {
   clearClickLetterAnimCount,
@@ -115,7 +116,7 @@ export const useAppState = (): [
     dispatch: (args: AppStateActionT) => void;
     dispatchClearNameClickCount: (args?: any) => void;
     dispatchNameClick: (args?: any) => void;
-  }
+  },
 ] => {
   const dispatch = useAppStateContextDispatch();
   const dispatchers = useMemo(() => {

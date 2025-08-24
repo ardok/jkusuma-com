@@ -1,12 +1,20 @@
-import React from 'react';
+'use client';
 
-import { useStyletron } from '../utils/styletron';
+import { css } from '@emotion/css';
+import React, { useEffect, useState } from 'react';
+
 import { useAppState } from '../hooks/app-state';
 
 const NameClickCount = () => {
-  const [css, theme] = useStyletron();
   const [state, { dispatchClearNameClickCount }] = useAppState();
   const { nameClickCount } = state;
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+  if (!isVisible) {
+    return null;
+  }
   return (
     <div
       className={css({

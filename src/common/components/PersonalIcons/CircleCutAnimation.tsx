@@ -1,22 +1,23 @@
+'use client';
+import { css } from '@emotion/css';
+import { keyframes } from '@emotion/react';
+import { grey } from '@mui/material/colors';
+import { styled } from '@mui/material/styles';
 import React from 'react';
-import { styled, ThemeT, useStyletron } from '../../utils/styletron';
-import { ANIMATION_TIME_MS, SQUARE_SIZE_PX } from './constants';
+
 import { FALLING_ANIMATION } from '../../utils/styles';
+import { ANIMATION_TIME_MS, SQUARE_SIZE_PX } from './constants';
 
-const StyledCircleCutAnimationWrapper = styled(
-  'div',
-  ({ $theme }: { $theme: ThemeT }) => ({
-    width: SQUARE_SIZE_PX,
-    height: SQUARE_SIZE_PX,
-    position: 'absolute',
-    backgroundColor: $theme.colors.grey100,
-    zIndex: 1,
-    borderRadius: '50%',
-
-    ...FALLING_ANIMATION,
-    animationDelay: `${ANIMATION_TIME_MS}ms`,
-  })
-);
+const StyledCircleCutAnimationWrapper = styled('div')(({ theme }) => ({
+  width: SQUARE_SIZE_PX,
+  height: SQUARE_SIZE_PX,
+  position: 'absolute',
+  backgroundColor: grey[100],
+  zIndex: 1,
+  borderRadius: '50%',
+  ...FALLING_ANIMATION,
+  animationDelay: `${ANIMATION_TIME_MS + 600}ms`,
+}));
 
 /*
 Copied from
@@ -28,7 +29,6 @@ const NORMALIZED_RADIUS = RADIUS - STROKE * 2;
 const CIRCUMFERENCE = NORMALIZED_RADIUS * 2 * Math.PI;
 const SIZE = 110;
 const CircleCutAnimation = () => {
-  const [css] = useStyletron();
   const svgClassStyle = css({
     position: 'relative',
     top: '-6px',
@@ -40,15 +40,14 @@ const CircleCutAnimation = () => {
     animationDuration: `${ANIMATION_TIME_MS}ms`,
     animationFillMode: 'forwards',
     animationTimingFunction: 'linear',
-    // @ts-ignore
-    animationName: {
+    animationName: keyframes({
       '0%': {
         strokeDashoffset: `${CIRCUMFERENCE}`,
       },
       '100%': {
         strokeDashoffset: 0,
       },
-    },
+    }),
   });
   return (
     <StyledCircleCutAnimationWrapper>

@@ -1,5 +1,3 @@
-import window from 'global/window';
-
 import { isDev } from './env';
 
 class GA {

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { IconGitHub } from '../IconGitHub';
 import { render, screen } from '../../../../test-utils/rtl';
+import { IconGitHub } from '../IconGitHub';
 
 describe('IconGithub', () => {
   test('Render icon github', () => {

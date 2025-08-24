@@ -5,7 +5,7 @@ const nextConfig = {
   // assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH,
   // https://stackoverflow.com/questions/58784444/nextjs-export-is-broken-no-css-no-js
   // https://nextjs.org/docs/api-reference/next.config.js/cdn-support-with-asset-prefix
-  assetPrefix: './',
+  assetPrefix: '/',
   // eslint: {
   //   dirs: ['src/**'],
   // },

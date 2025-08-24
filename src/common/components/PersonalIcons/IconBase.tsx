@@ -1,16 +1,17 @@
+'use client';
+import { blue } from '@mui/material/colors';
+import { styled } from '@mui/material/styles';
 import React from 'react';
-
-import { styled, ThemeT } from '../../utils/styletron';
 
 function noop() {}
 
-const StyledLink = styled('a', ({ $theme }: { $theme: ThemeT }) => {
+const StyledLink = styled('a')(({ theme }) => {
   return {
-    color: '#000',
+    color: 'inherit',
     ':hover': {
-      color: $theme.colors.blue800,
+      opacity: 0.8,
     },
-    transition: 'color 200ms',
+    transition: 'opacity 200ms',
   };
 });
 

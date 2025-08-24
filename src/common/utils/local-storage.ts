@@ -1,10 +1,12 @@
-import window from 'global/window';
-
 class DummyLocalStorage {
-  getItem() {}
+  getItem(): string | null {
+    return null;
+  }
   setItem() {}
   removeItem() {}
   clear() {}
+  length = 0;
+  key = (idx: number) => null;
 }
 
 class LocalStorage {
@@ -12,7 +14,9 @@ class LocalStorage {
 
   constructor(props: { store?: Storage } = {}) {
     this.localStorage =
-      props.store || window.localStorage || new DummyLocalStorage();
+      props.store ||
+      (typeof window !== 'undefined' && window.localStorage) ||
+      new DummyLocalStorage();
   }
 
   get(key: string, defaultValue: any) {

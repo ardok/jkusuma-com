@@ -1,15 +1,15 @@
+'use client';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import { styled } from '@mui/material/styles';
 import React from 'react';
 
-import { IconBase } from './IconBase';
 import { GAClass } from '../../utils/ga';
-import { styled } from '../../utils/styletron';
+import { IconBase } from './IconBase';
 
-const StyledWrapper = styled('div', {
+const StyledWrapper = styled('div')({
   position: 'absolute',
-  left: 'calc(50% - 18px)',
-  top: '45%',
-  fontSize: '36px',
-  marginTop: '6px',
+  left: 'calc(50% - 12px)',
+  top: '50%',
 });
 
 const IconGitHub = () => {
@@ -19,8 +19,7 @@ const IconGitHub = () => {
         href="https://github.com/ardok/jkusuma-com"
         onLinkClick={() => GAClass.clickGitHub()}
         data-testid="link-github">
-        {/* @ts-ignore */}
-        <ion-icon name="logo-github" title="icon-github" />
+        <GitHubIcon color="inherit" />
       </IconBase>
     </StyledWrapper>
   );
