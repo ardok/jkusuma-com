@@ -15,7 +15,7 @@ import IconButton from '@mui/material/IconButton';
 import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import type { NextPage } from 'next';
-import { useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 
 import { ThemeToggle } from '../../src/common/components/ThemeToggle';
 import { useCardDataStorage } from '../../src/common/hooks/storage';
@@ -60,7 +60,7 @@ const Doc2: NextPage = () => {
     useCardDataStorage();
 
   const [authorShowSkeleton, setAuthorShowSkeleton] = useState(false);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [rotation, setRotation] = useState(0);
   const [checkedLevels, setCheckedLevels] = useState({
     1: false,
@@ -70,6 +70,24 @@ const Doc2: NextPage = () => {
 
   const [currentCard, setCurrentCard] = useState<(typeof DOC2_CARDS)[0] | null>(
     null
+  );
+
+  const checkboxLevelOnChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>, { level }: { level: number }) => {
+      setCheckedLevels((prev) => {
+        const newCheckedLevels = {
+          ...prev,
+          [level]: e.target.checked,
+        };
+        // If nothing is checked, disable the button
+        const isAnythingChecked = Object.values(newCheckedLevels).some(
+          (x) => x
+        );
+        setIsButtonDisabled(!isAnythingChecked);
+        return newCheckedLevels;
+      });
+    },
+    []
   );
 
   const setNewQuestion = () => {
@@ -94,6 +112,14 @@ const Doc2: NextPage = () => {
       addSeenCardId(currCard.id);
     }
   };
+
+  const seenCardIdsLength = seenCardIds.length;
+  useEffect(() => {
+    if (seenCardIdsLength === 0) {
+      // Reset the card
+      setCurrentCard(null);
+    }
+  }, [seenCardIdsLength]);
 
   return (
     <>
@@ -215,10 +241,7 @@ const Doc2: NextPage = () => {
               <Checkbox
                 checked={checkedLevels['1']}
                 onChange={(e) => {
-                  setCheckedLevels((prev) => ({
-                    ...prev,
-                    1: e.target.checked,
-                  }));
+                  checkboxLevelOnChange(e, { level: 1 });
                 }}
                 sx={{
                   color: green[900],
@@ -236,10 +259,7 @@ const Doc2: NextPage = () => {
               <Checkbox
                 checked={checkedLevels['2']}
                 onChange={(e) => {
-                  setCheckedLevels((prev) => ({
-                    ...prev,
-                    2: e.target.checked,
-                  }));
+                  checkboxLevelOnChange(e, { level: 2 });
                 }}
                 sx={{
                   color: yellow[900],
@@ -257,10 +277,7 @@ const Doc2: NextPage = () => {
               <Checkbox
                 checked={checkedLevels['3']}
                 onChange={(e) => {
-                  setCheckedLevels((prev) => ({
-                    ...prev,
-                    3: e.target.checked,
-                  }));
+                  checkboxLevelOnChange(e, { level: 3 });
                 }}
                 sx={{
                   color: red[900],
@@ -282,20 +299,17 @@ const Doc2: NextPage = () => {
         })}>
         <Button
           variant="outlined"
+          disabled={isButtonDisabled}
           onPointerDown={() => {
             if (isButtonDisabled) {
               return;
             }
             setAuthorShowSkeleton(true);
-            setIsButtonDisabled(true);
             setRotation((prev) => prev + 180); // add 180° each click
             setTimeout(() => {
               setAuthorShowSkeleton(false);
               setNewQuestion();
             }, 300);
-            setTimeout(() => {
-              setIsButtonDisabled(false);
-            }, 800);
           }}
           sx={(theme) => ({
             marginTop: '12px',
@@ -349,6 +363,10 @@ const Doc2: NextPage = () => {
                   <IconButton
                     onClick={() => {
                       removeSeenCardId(id);
+                      // If we remove the same card as the current one, reset
+                      if (id === currentCard?.id) {
+                        setCurrentCard(null);
+                      }
                     }}
                     sx={{
                       position: 'absolute',
@@ -377,7 +395,13 @@ const Doc2: NextPage = () => {
                             fontSize: theme.typography.caption,
                           };
                         }}>
-                        {card?.question}
+                        <Box>{card?.question}</Box>
+                        <Box
+                          sx={(theme) => ({
+                            fontSize: '10px',
+                          })}>
+                          {card?.level}
+                        </Box>
                       </Box>
                     </CardContent>
                   </CardActionArea>
