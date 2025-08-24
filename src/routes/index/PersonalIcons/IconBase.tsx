@@ -24,7 +24,13 @@ type PropsT = {
 const IconBase = (props: PropsT) => {
   const { href = '', onLinkClick = noop, children, ...rest } = props;
   return (
-    <IconButton {...rest} href={href} onClick={onLinkClick}>
+    <IconButton
+      {...rest}
+      href={href}
+      onClick={onLinkClick}
+      sx={{
+        color: 'inherit',
+      }}>
       {children}
     </IconButton>
   );

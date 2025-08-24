@@ -1,6 +1,5 @@
 'use client';
 
-import { css } from '@emotion/css';
 import React, { useEffect, useState } from 'react';
 
 import { useAppState } from '../../common/hooks/app-state';
@@ -17,12 +16,12 @@ const NameClickCount = () => {
   }
   return (
     <div
-      className={css({
+      style={{
         position: 'absolute',
         right: '25px',
         textAlign: 'center',
         cursor: 'default',
-      })}
+      }}
       onClick={() => {
         dispatchClearNameClickCount();
       }}>

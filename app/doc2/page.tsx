@@ -1,15 +1,17 @@
 'use client';
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import type { Theme } from '@mui/material';
+import { type Theme } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import Checkbox from '@mui/material/Checkbox';
 import { green, red, yellow } from '@mui/material/colors';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
+import IconButton from '@mui/material/IconButton';
 import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import type { NextPage } from 'next';
@@ -280,8 +282,10 @@ const Doc2: NextPage = () => {
         })}>
         <Button
           variant="outlined"
-          disabled={isButtonDisabled}
           onPointerDown={() => {
+            if (isButtonDisabled) {
+              return;
+            }
             setAuthorShowSkeleton(true);
             setIsButtonDisabled(true);
             setRotation((prev) => prev + 180); // add 180° each click
@@ -327,6 +331,9 @@ const Doc2: NextPage = () => {
             }}>
             {seenCardIds.map((id) => {
               const card = DOC2_CARDS.find((c) => id === c.id);
+              if (!card) {
+                return null;
+              }
               return (
                 <Card
                   key={id}
@@ -339,31 +346,41 @@ const Doc2: NextPage = () => {
                       boxShadow: '0px 4px 12px rgba(255, 255, 255, 0.1)',
                     }),
                   })}>
-                  <CloseIcon
+                  <IconButton
+                    onClick={() => {
+                      removeSeenCardId(id);
+                    }}
                     sx={{
                       position: 'absolute',
-                      right: '8px',
-                      top: '8px',
+                      right: 0,
+                      top: 0,
                       cursor: 'pointer',
                       ':hover': {
                         opacity: 0.8,
                       },
                       transition: 'opacity 200ms',
-                    }}
+                      zIndex: 1,
+                    }}>
+                    <CloseIcon />
+                  </IconButton>
+                  <CardActionArea
                     onClick={() => {
-                      removeSeenCardId(id);
+                      // Set the current card to be this one
+                      setCurrentCard(card);
+                      window.scrollTo(0, 0);
                     }}
-                  />
-                  <CardContent>
-                    <Box
-                      sx={(theme) => {
-                        return {
-                          fontSize: theme.typography.caption,
-                        };
-                      }}>
-                      {card?.question}
-                    </Box>
-                  </CardContent>
+                    sx={{ height: '100%' }}>
+                    <CardContent>
+                      <Box
+                        sx={(theme) => {
+                          return {
+                            fontSize: theme.typography.caption,
+                          };
+                        }}>
+                        {card?.question}
+                      </Box>
+                    </CardContent>
+                  </CardActionArea>
                 </Card>
               );
             })}

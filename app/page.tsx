@@ -1,4 +1,3 @@
-import { css } from '@emotion/css';
 import type { NextPage } from 'next';
 
 import { NameClickCount } from '../src/routes/index/NameClickCount';
@@ -16,12 +15,12 @@ const Home: NextPage = () => {
         <NameMine />
       </div>
       <div
-        className={css({
+        style={{
           position: 'absolute',
           bottom: '10px',
           left: '10px',
           fontSize: '9px',
-        })}>
+        }}>
         This website is using Google Analytics
       </div>
     </>
