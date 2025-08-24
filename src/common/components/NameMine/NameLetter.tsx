@@ -1,18 +1,25 @@
-import React, { useState, useRef } from 'react';
+import { CSSObject } from '@emotion/react';
+import { styled } from '@mui/material';
+import React, { useRef, useState } from 'react';
 
-import { styled } from '../../utils/styletron';
 import { getRandomAnimation } from './styles';
 
-export const StyledNameLetter = styled(
-  'div',
-  ({ $animating, $animation }: { $animating: boolean; $animation: any }) => {
-    return {
-      display: 'inline-block',
-      cursor: 'default',
-      ...($animating ? $animation : {}),
-    };
-  }
-);
+export const StyledNameLetter = styled('div')(({
+  animating,
+  animation,
+  style,
+}: {
+  animating: boolean;
+  animation: any;
+  style: CSSObject;
+}) => {
+  return {
+    display: 'inline-block',
+    cursor: 'default',
+    ...(animating ? animation : {}),
+    ...style,
+  };
+});
 
 const NameLetter = ({
   onClick,
@@ -24,7 +31,7 @@ const NameLetter = ({
   noAnimation?: boolean;
   overrides?: {
     Root?: {
-      style?: Object;
+      style?: any;
     };
   };
   children: React.ReactNode;
@@ -33,12 +40,12 @@ const NameLetter = ({
   const [hasAnimationEnded, setHasAnimationEnded] = useState(false);
   const animation = useRef(getRandomAnimation()).current;
 
-  const rootOverridesStyle = overrides?.Root?.style;
+  const rootOverridesStyle = overrides?.Root?.style as any;
 
   return (
     <StyledNameLetter
-      $animating={animating}
-      $animation={animation}
+      animating={animating}
+      animation={animation}
       onClick={(evt: React.MouseEvent<HTMLDivElement>) => {
         if (!noAnimation && !animating) {
           setAnimating(true);
@@ -48,14 +55,14 @@ const NameLetter = ({
         }
       }}
       onAnimationEnd={() => setHasAnimationEnded(true)}
-      $style={
+      style={
         hasAnimationEnded
           ? {
-            // This is to prevent scrolling
-            ...rootOverridesStyle,
-            animationFillMode: 'none',
-            opacity: 0,
-          }
+              // This is to prevent scrolling
+              ...rootOverridesStyle,
+              animationFillMode: 'none',
+              opacity: 0,
+            }
           : rootOverridesStyle
       }>
       {children}

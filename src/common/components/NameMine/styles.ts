@@ -1,4 +1,5 @@
-import { styled } from '../../utils/styletron';
+import { styled } from '@mui/material';
+
 import {
   FALLING_ANIMATION,
   JUMP_FALLING_ANIMATION,
@@ -29,7 +30,7 @@ export const NAME_LETTER_OVERRIDES_A = {
   },
 };
 
-export const StyledWrapper = styled('div', {
+export const StyledWrapper = styled('div')({
   position: 'absolute',
   top: 'calc(50% - 40px)',
   left: 'calc(50% - 65px)',
@@ -40,11 +41,11 @@ export const StyledWrapper = styled('div', {
   },
 });
 
-export const StyledInnerWrapper = styled('div', {
+export const StyledInnerWrapper = styled('div')({
   position: 'relative',
 });
 
-export const StyledNameFirst = styled('div', {
+export const StyledNameFirst = styled('div')({
   fontSize: '24px',
   marginLeft: '3px',
   [MEDIA_QUERY_PHONE]: {
@@ -52,7 +53,7 @@ export const StyledNameFirst = styled('div', {
   },
 });
 
-export const StyledNameLast = styled('div', {
+export const StyledNameLast = styled('div')({
   fontSize: '60px',
   [MEDIA_QUERY_PHONE]: {
     fontSize: '30px',

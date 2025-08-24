@@ -1,20 +1,21 @@
+'use client';
+import { styled } from '@mui/material';
 import React, { useCallback, useMemo, useState } from 'react';
 
+import { useAppState } from '../../hooks/app-state';
 import { NameLetter } from './NameLetter';
 import {
-  StyledWrapper,
+  NAME_LETTER_OVERRIDES_A,
+  NAME_LETTER_OVERRIDES_K,
   StyledInnerWrapper,
   StyledNameFirst,
   StyledNameLast,
-  NAME_LETTER_OVERRIDES_A,
-  NAME_LETTER_OVERRIDES_K,
+  StyledWrapper,
 } from './styles';
-import { styled } from '../../utils/styletron';
-import { useAppState } from '../../hooks/app-state';
 
 const MID_LETTERS = ['U', 'S', 'U', 'M'];
 
-const StyledClickMyName = styled('div', {
+const StyledClickMyName = styled('div')({
   position: 'absolute',
   top: '-10px',
   right: '-150px',

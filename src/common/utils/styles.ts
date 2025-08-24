@@ -1,4 +1,6 @@
-const FALLING_ANIMATION_NAME = {
+import { CSSObject, keyframes } from '@emotion/react';
+
+const FALLING_ANIMATION_NAME = keyframes({
   '0%': {
     transform: 'rotate(0deg)',
   },
@@ -16,10 +18,10 @@ const FALLING_ANIMATION_NAME = {
     transform: 'translateY(250px)',
     opacity: 0,
   },
-};
+});
 
 export const FALLING_ANIMATION_DURATION_MS = 1000;
-export const FALLING_ANIMATION = {
+export const FALLING_ANIMATION: CSSObject = {
   animationDuration: `${FALLING_ANIMATION_DURATION_MS}ms`,
   animationFillMode: 'forwards',
   animationTimingFunction: 'ease-in',
@@ -27,7 +29,7 @@ export const FALLING_ANIMATION = {
   animationName: FALLING_ANIMATION_NAME,
 };
 
-const JUMP_FALLING_ANIMATION_NAME = {
+const JUMP_FALLING_ANIMATION_NAME = keyframes({
   '0%': {
     transform: 'scale(1, 1) translateY(0)',
   },
@@ -42,7 +44,7 @@ const JUMP_FALLING_ANIMATION_NAME = {
     transform: 'scale(1, 1) translateY(400px)',
     opacity: 0,
   },
-};
+});
 export const JUMP_FALLING_ANIMATION = {
   animationDuration: `${FALLING_ANIMATION_DURATION_MS}ms`,
   animationFillMode: 'forwards',

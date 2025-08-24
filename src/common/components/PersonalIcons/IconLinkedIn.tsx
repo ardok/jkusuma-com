@@ -1,15 +1,15 @@
+'use client';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { styled } from '@mui/material/styles';
 import React from 'react';
 
-import { styled } from '../../utils/styletron';
-import { IconBase } from './IconBase';
 import { GAClass } from '../../utils/ga';
+import { IconBase } from './IconBase';
 
-const StyledWrapper = styled('div', {
+const StyledWrapper = styled('div')({
   position: 'absolute',
-  left: 'calc(50% - 18px)',
-  top: 0,
-  fontSize: '36px',
-  marginTop: '12px',
+  left: 'calc(50% - 12px)',
+  top: 'calc(30% - 12px)',
 });
 
 const IconLinkedIn = () => {
@@ -18,8 +18,7 @@ const IconLinkedIn = () => {
       <IconBase
         href="https://www.linkedin.com/in/ardokusuma/"
         onLinkClick={() => GAClass.clickLinkedIn()}>
-        {/* @ts-ignore */}
-        <ion-icon name="logo-linkedin" />
+        <LinkedInIcon />
       </IconBase>
     </StyledWrapper>
   );
