@@ -20,3 +20,4 @@ Deploying:
 * Run `yarn build`.
 * Create a branch, push, then merge through github UI.
 
+We are using Vercel.

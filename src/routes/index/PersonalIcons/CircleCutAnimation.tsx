@@ -5,7 +5,7 @@ import { grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import React from 'react';
 
-import { FALLING_ANIMATION } from '../../utils/styles';
+import { FALLING_ANIMATION } from '../../../common/utils/styles';
 import { ANIMATION_TIME_MS, SQUARE_SIZE_PX } from './constants';
 
 const StyledCircleCutAnimationWrapper = styled('div')(({ theme }) => ({

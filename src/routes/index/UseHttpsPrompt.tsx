@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-import { isDev } from '../utils/env';
+import { isDev } from '../../common/utils/env';
 
 export const UseHttpsPrompt = () => {
   useEffect(() => {

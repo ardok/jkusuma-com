@@ -1,8 +1,15 @@
 'use client';
 import { styled } from '@mui/material';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
-import { useAppState } from '../../hooks/app-state';
+import { useAppState } from '../../../common/hooks/app-state';
+import { FALLING_ANIMATION_DURATION_MS } from '../../../common/utils/styles';
 import { NameLetter } from './NameLetter';
 import {
   NAME_LETTER_OVERRIDES_A,
@@ -31,13 +38,40 @@ function getMidLetters(props: { onLetterClick: () => any }) {
   ));
 }
 
+function unsetBodyNoScroll() {
+  document.body.style.overflow = '';
+}
+
+function setBodyNoScroll() {
+  document.body.style.overflow = 'hidden';
+}
+
 const NameMine = () => {
   const [, { dispatchNameClick }] = useAppState();
   const [clickCount, setClickCount] = useState(0);
 
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>(null);
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        document.body.style.overflow = ''; // ensure overflow is restored
+      }
+    };
+  }, []);
+
   const onLetterClick = useCallback(() => {
     setClickCount((c) => c + 1);
     dispatchNameClick();
+
+    // Always clear timeout on click
+    timeoutRef.current && clearTimeout(timeoutRef.current);
+    setBodyNoScroll();
+    timeoutRef.current = setTimeout(() => {
+      unsetBodyNoScroll();
+      timeoutRef.current = null;
+    }, FALLING_ANIMATION_DURATION_MS + 250);
   }, [dispatchNameClick]);
 
   const midLetterProps = useMemo(
