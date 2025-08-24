@@ -30,9 +30,9 @@ module.exports = defineConfig([
     rules: {
       'prettier/prettier': ['error'],
       'react/display-name': 0,
-      quotes: ['error', 'single'],
+      quotes: ['off', 'single'],
       'max-len': [
-        'error',
+        'off',
         {
           code: 80,
           ignoreComments: true,

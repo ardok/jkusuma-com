@@ -6196,6 +6196,7 @@ __metadata:
     eslint-plugin-simple-import-sort: "npm:^12.1.1"
     jest: "npm:^30.0.5"
     jest-environment-jsdom: "npm:^30.0.5"
+    jose: "npm:^6.0.13"
     next: "npm:^15.5.0"
     prettier: "npm:^3.6.2"
     react: "npm:^19.1.1"
@@ -6203,9 +6204,17 @@ __metadata:
     react-dom: "npm:^19.1.1"
     ts-jest: "npm:^29.4.1"
     typescript: "npm:5.9.2"
+    universal-cookie: "npm:^8.0.1"
     webpack: "npm:^5.101.3"
   languageName: unknown
   linkType: soft
+
+"jose@npm:^6.0.13":
+  version: 6.0.13
+  resolution: "jose@npm:6.0.13"
+  checksum: 10c0/e33510e784a0772718ec83e2a724e3f0f7cf79a8000267819b11c4c7981e2a49e6a2a5aea5261cf23697f4531f7e0dfaecd112e5e95ae3fa2b995fb54b1edc73
+  languageName: node
+  linkType: hard
 
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
@@ -8822,7 +8831,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"universal-cookie@npm:^8.0.0":
+"universal-cookie@npm:^8.0.0, universal-cookie@npm:^8.0.1":
   version: 8.0.1
   resolution: "universal-cookie@npm:8.0.1"
   dependencies:

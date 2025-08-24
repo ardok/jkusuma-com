@@ -1,7 +1,5 @@
 import { CssBaseline, ThemeProvider as MuiThemeProvider } from '@mui/material';
-import { grey } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { Roboto } from 'next/font/google';
 import { createContext, useCallback, useContext, useMemo } from 'react';
 import { useCookies } from 'react-cookie';
@@ -62,8 +60,4 @@ export const ThemeProvider = ({
       </MuiThemeProvider>
     </ThemeContext.Provider>
   );
-};
-
-export const useIsDarkTheme = (): boolean => {
-  return useMediaQuery('(prefers-color-scheme: dark)');
 };

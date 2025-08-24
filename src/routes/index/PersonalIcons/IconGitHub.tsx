@@ -8,7 +8,7 @@ import { IconBase } from './IconBase';
 
 const StyledWrapper = styled('div')({
   position: 'absolute',
-  left: 'calc(50% - 12px)',
+  left: 'calc(50% - 20px)',
   top: '50%',
 });
 
