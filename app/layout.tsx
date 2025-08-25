@@ -1,8 +1,9 @@
 import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
+import { useColorScheme } from '@mui/material/styles';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers'; // server-only
-import { headers } from 'next/headers';
+// import { headers } from 'next/headers';
 import React, { ReactNode } from 'react';
 
 import { ClientProvider } from '../src/providers/ClientProvider';
@@ -35,13 +36,13 @@ async function RootLayout({ children }: { children: ReactNode }) {
     initialCookies[c.name] = c.value;
   });
 
-  const pathname = (await headers()).get('pathname');
+  // const pathname = (await headers()).get('pathname');
 
   return (
     <html
       suppressHydrationWarning
       style={{
-        ...(pathname === '/login' ? { height: '100%' } : {}),
+        // ...(pathname === '/login' ? { height: '100%' } : {}),
         margin: 0,
       }}
       {...(themeModeFromCookie === 'dark'
@@ -53,7 +54,7 @@ async function RootLayout({ children }: { children: ReactNode }) {
         */}
       <GoogleAnalytics gaId="G-ETXMEFPMRQ" />
       <body style={{ height: 'inherit' }}>
-        <InitColorSchemeScript attribute="class" />
+        <InitColorSchemeScript attribute="data" />
         <ClientProvider
           initialThemeMode={themeModeFromCookie || 'light'}
           initialCookies={initialCookies}>

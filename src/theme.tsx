@@ -1,5 +1,5 @@
 import { CssBaseline, ThemeProvider as MuiThemeProvider } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
+import { createTheme, useColorScheme } from '@mui/material/styles';
 import { Roboto } from 'next/font/google';
 import { createContext, useCallback, useContext, useMemo } from 'react';
 import { useCookies } from 'react-cookie';
@@ -53,7 +53,11 @@ export const ThemeProvider = ({
     [setCookie]
   );
   return (
-    <ThemeContext.Provider value={{ mode, setMode }}>
+    <ThemeContext.Provider
+      value={{
+        mode,
+        setMode,
+      }}>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
         <LayoutWrapper>{children}</LayoutWrapper>
