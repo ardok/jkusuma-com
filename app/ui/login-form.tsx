@@ -23,6 +23,7 @@ export const LoginForm = () => {
   return (
     <Box
       sx={(theme) => ({
+        marginTop: '100px',
         height: '100%',
         display: 'flex',
         justifyContent: 'center',
